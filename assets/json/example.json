@@ -1,0 +1,38 @@
+{
+    "type" : "container",
+    "attr" : {
+        "width" : 300.0,
+        "height" : 300.0,
+        "color" : "#F2F2F2"
+    },
+    "child" : {
+        "type" : "column",
+        "attr" : {
+            "mainAxisAlignment" : "center",
+            "crossAxisAlignment" : "start",
+            "mainAxisSize" : "min"
+        },
+        "children" : [
+            {
+                "type" : "container",
+                "attr" : {
+                    "width" : 50.0,
+                    "height" : 50.0,
+                    "color" : "#F2F2F2"
+                }
+            },
+            {
+                "type" : "text",
+                "text" : "Jangan Lupa Makan",
+                "attr" : {
+                    "height" : 1.4,
+                    "fontSize" : 12.5,
+                    "fontFamily" : "SourceSansPro",
+                    "fontWeight" : "w600"
+                }
+            }
+        ]
+    }
+}
+
+
