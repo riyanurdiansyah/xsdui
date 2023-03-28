@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:xsdui/utils/xsdui_extension.dart';
 
-import '../../utils/extension.dart';
 import '../xsdui_parser.dart';
 
-class XSduiParseToContainer {
-  static Widget parse(
+class XSduiContainer {
+  static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
   }) =>
@@ -15,18 +15,16 @@ class XSduiParseToContainer {
           color: json["attr"]["color"] == null
               ? null
               : HexColor.fromHex(json["attr"]["color"]),
-          borderRadius: json["attr"]["borderRadiusType"] == null ||
-                  json["attr"]["borderRadius"] == null
+          borderRadius: json["attr"]["borderRadius"] == null
               ? null
-              : json["attr"]["borderRadiusType"] == "all"
-                  ? BorderRadius.circular(json["attr"]["borderRadius"])
-                  : const BorderRadius.only(),
+              : XSduiBorderRadius.fromMap(json["attr"]["borderRadius"]),
         ),
+        alignment: json["attr"]["alignment"],
+        margin: json["attr"]["margin"] == null
+            ? null
+            : XSduiEdgeInset.fromMap(json["attr"]["margin"]),
         child: json["child"] == null
             ? const SizedBox()
-            : XSduiParseToWidget.fromJson(
-                context,
-                json: json["child"],
-              ),
+            : XSduiParseToWidget.fromJson(context, json: json["child"]),
       );
 }

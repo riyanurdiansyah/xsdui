@@ -13,10 +13,10 @@ class XSduiParseToWidget {
     String type = json["type"].toString().toLowerCase();
     switch (type) {
       case "container":
-        return XSduiParseToContainer.parse(context, json: json);
+        return XSduiContainer.fromJson(context, json: json);
 
       case "column":
-        return XSduiParseToColumn.parse(context, json: json);
+        return XSduiColumn.fromJson(context, json: json);
 
       case "text":
         return XSduiParseToText.parse(context, json: json);

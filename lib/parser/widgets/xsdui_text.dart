@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/xsdui_font_style.dart';
+import '../../utils/xsdui_extension.dart';
 
 class XSduiParseToText {
   static Widget parse(
@@ -14,6 +14,10 @@ class XSduiParseToText {
           fontFamily: json["attr"]["fontFamily"],
           fontWeight: XSduiFontWeight.fromString(json["attr"]["fontWeight"]),
           fontStyle: XSduiFontStyle.fromString(json["attr"]["fontStyle"]),
+          wordSpacing: json["attr"]["wordSpacing"],
+          color: json["attr"]["color"],
+          height: json["attr"]["height"],
+          overflow: XSduiTextOverflow.fromString(json["attr"]["overflow"]),
         ),
       );
 }
