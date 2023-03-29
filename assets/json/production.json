@@ -12,7 +12,6 @@
         },
         "leading" : {
             "type" : "container",
-            "attr" : {
                 "width" : 25.0,
                 "height" : 25.0,
                 "color" : "#FFFFFF",
@@ -21,7 +20,7 @@
                     "borderRadiusType" : "circular",
                     "radius" : 10.0
                 }
-            }
+            
         },
         "actions" : [
             {
@@ -30,6 +29,26 @@
                     "type" : "text",
                     "text" : "Action 1"
                 }
+            }
+        ]
+    },
+    "body" : {
+        "type" : "column", 
+        "crossAxisAlignment" : "end",
+        "mainAxisAlignment" : "spaceBetween",
+        "children" : [
+            {
+                "type" : "text",
+                "title" : "Title XSDUI 1",
+                "fontSize" : 20.0,
+                "fontWeight" : "w600",
+                "color" : "#F0F0F0" 
+            },
+            {
+                "type" : "container",
+                "fitWidth" : true,
+                "height" : 125.0,
+                "color" : "#F0F0F0"
             }
         ]
     }
