@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 extension XSduiAxis on Axis {
-  static Axis fromString(String direction) {
+  static Axis fromString(String? direction) {
     switch (direction) {
+      case null:
+        return Axis.vertical;
       case "vertical":
         return Axis.vertical;
       case "horizontal":

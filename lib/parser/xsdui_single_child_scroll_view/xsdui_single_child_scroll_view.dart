@@ -4,22 +4,19 @@ import 'package:xsdui/parser/xsdui_single_child_scroll_view/xsdui_single_child_s
 import 'package:xsdui/xsdui.dart';
 
 class XSduiSingleChildScrollView {
-  static Widget parse(
+  static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
   }) =>
       SingleChildScrollView(
-        padding: json["attr"]["padding"] == null
+        padding: json["padding"] == null
             ? null
-            : XSduiEdgeInsetPadding.fromMap(json["attr"]["padding"]),
-        scrollDirection: XSduiAxis.fromString(json["attr"]["scrollDirection"]),
-        physics: json["attr"]["physics"] == null
+            : XSduiEdgeInsetPadding.fromMap(json["padding"]),
+        scrollDirection: XSduiAxis.fromString(json["scrollDirection"]),
+        physics: json["physics"] == null
             ? null
-            : XSduiScrollPhysics.fromString(json["attr"]["physics"]),
-        reverse: json["attr"]["reverse"] ?? false,
-        child: XSdui.fromJson(
-          context,
-          json: json["child"],
-        ),
+            : XSduiScrollPhysics.fromString(json["physics"]),
+        reverse: json["reverse"] ?? false,
+        child: XSdui.fromJson(context, json: json["child"]),
       );
 }
