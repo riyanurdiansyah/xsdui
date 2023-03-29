@@ -6,7 +6,7 @@ extension XSduiEdgeInsetMargin on EdgeInsets {
       case "all":
         return EdgeInsets.all(map["margin"] ?? 0.0);
 
-      case "symetric":
+      case "symmetric":
         return EdgeInsets.symmetric(
           horizontal: map["horizontal"] ?? 0.0,
           vertical: map["vertical"] ?? 0.0,
@@ -37,7 +37,7 @@ extension XSduiEdgeInsetPadding on EdgeInsets {
       case "all":
         return EdgeInsets.all(map["padding"] ?? 0.0);
 
-      case "symetric":
+      case "symmetric":
         return EdgeInsets.symmetric(
           horizontal: map["horizontal"] ?? 0.0,
           vertical: map["vertical"] ?? 0.0,

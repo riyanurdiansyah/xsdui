@@ -10,23 +10,21 @@ class XSduiContainer {
     required Map<String, dynamic> json,
   }) =>
       Container(
-        width: json["attr"]?["width"],
-        height: json["attr"]?["height"],
+        width: json["fitWidth"] == true ? double.infinity : json["width"],
+        height: json["height"],
         decoration: BoxDecoration(
-          color: json["attr"]?["color"] == null
+          color: json["color"] == null ? null : HexColor.fromHex(json["color"]),
+          borderRadius: json["borderRadius"] == null
               ? null
-              : HexColor.fromHex(json["attr"]["color"]),
-          borderRadius: json["attr"]?["borderRadius"] == null
-              ? null
-              : XSduiBorderRadius.fromMap(json["attr"]["borderRadius"]),
+              : XSduiBorderRadius.fromMap(json["borderRadius"]),
         ),
-        alignment: json["attr"]?["alignment"],
-        margin: json["attr"]?["margin"] == null
+        alignment: json["alignment"],
+        margin: json["margin"] == null
             ? null
-            : XSduiEdgeInsetMargin.fromMap(json["attr"]["margin"]),
-        padding: json["attr"]?["padding"] == null
+            : XSduiEdgeInsetMargin.fromMap(json["margin"]),
+        padding: json["padding"] == null
             ? null
-            : XSduiEdgeInsetPadding.fromMap(json["attr"]["padding"]),
+            : XSduiEdgeInsetPadding.fromMap(json["padding"]),
         child: json["child"] == null
             ? const SizedBox()
             : XSdui.fromJson(context, json: json["child"]),
