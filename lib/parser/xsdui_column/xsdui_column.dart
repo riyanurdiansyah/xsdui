@@ -9,12 +9,11 @@ class XSduiColumn {
     required Map<String, dynamic> json,
   }) =>
       Column(
-        crossAxisAlignment: XSduiCrossAxisAlignment.fromString(
-            json["attr"]["crossAxisAlignment"]),
-        mainAxisSize:
-            XSduiMainAxisSize.fromString(json["attr"]["mainAxisSize"]),
-        mainAxisAlignment: XSduiMainAxisAlignment.fromString(
-            json["attr"]["mainAxisAlignment"]),
+        crossAxisAlignment:
+            XSduiCrossAxisAlignment.fromString(json["crossAxisAlignment"]),
+        mainAxisSize: XSduiMainAxisSize.fromString(json["mainAxisSize"]),
+        mainAxisAlignment:
+            XSduiMainAxisAlignment.fromString(json["mainAxisAlignment"]),
         children: List.generate(
           json["children"] == null ? 0 : json["children"].length,
           (index) => XSdui.fromJson(context, json: json["children"][index]),
