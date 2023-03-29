@@ -7,7 +7,7 @@ class XSduiFlexible {
     required Map<String, dynamic> json,
   }) =>
       Flexible(
-        flex: json["attr"]["flex"],
+        flex: json["flex"],
         child: XSdui.fromJson(
           context,
           json: json["child"],
