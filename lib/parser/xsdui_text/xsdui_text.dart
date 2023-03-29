@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:xsdui/utils/xsdui_extension.dart';
 
 import 'xsdui_text_extension.dart';
 
 class XSduiText {
-  static Widget parse(
+  static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
   }) =>
       Text(
-        json["text"],
-        maxLines: json["attr"]?["maxLines"],
-        overflow: json["attr"] == null || json["attr"]["overflow"] == null
+        json["title"],
+        maxLines: json["maxLines"],
+        overflow: json["overflow"] == null
             ? null
-            : XSduiTextOverflow.fromString(json["attr"]["overflow"]),
+            : XSduiTextOverflow.fromString(json["overflow"]),
         style: TextStyle(
-          fontSize: json["attr"]?["fontSize"],
-          fontFamily: json["attr"]?["fontFamily"],
-          fontWeight: json["attr"]?["fontWeight"] == null
+          fontSize: json["fontSize"],
+          fontFamily: json["fontFamily"],
+          fontWeight: json["fontWeight"] == null
               ? null
-              : XSduiFontWeight.fromString(json["attr"]["fontWeight"]),
-          fontStyle: json["attr"]?["fontStyle"] == null
+              : XSduiFontWeight.fromString(json["fontWeight"]),
+          fontStyle: json["fontStyle"] == null
               ? null
-              : XSduiFontStyle.fromString(json["attr"]["fontStyle"]),
-          wordSpacing: json["attr"]?["wordSpacing"],
-          color: json["attr"]?["color"],
-          height: json["attr"]?["height"],
+              : XSduiFontStyle.fromString(json["fontStyle"]),
+          wordSpacing: json["wordSpacing"],
+          color: json["color"] == null ? null : HexColor.fromHex(json["color"]),
+          height: json["height"],
         ),
       );
 }

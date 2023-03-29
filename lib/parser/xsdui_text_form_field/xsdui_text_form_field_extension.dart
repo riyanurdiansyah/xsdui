@@ -7,34 +7,34 @@ extension XSduiInputBorder on InputBorder {
     switch (map["borderType"]) {
       case "underline":
         return UnderlineInputBorder(
-          borderRadius: map["attr"]["borderRadius"] == null
+          borderRadius: map["borderRadius"] == null
               ? const BorderRadius.all(Radius.circular(4.0))
-              : XSduiBorderRadius.fromMap(map["attr"]["borderRadius"]),
+              : XSduiBorderRadius.fromMap(map["borderRadius"]),
           borderSide: BorderSide(
-            color: HexColor.fromHex(map["attr"]["color"]),
-            width: map["attr"]["width"] ?? 1.0,
+            color: HexColor.fromHex(map["color"]),
+            width: map["width"] ?? 1.0,
           ),
         );
 
       case "outline":
         return OutlineInputBorder(
-          borderRadius: map["attr"]["borderRadius"] == null
+          borderRadius: map["borderRadius"] == null
               ? const BorderRadius.all(Radius.circular(4.0))
-              : XSduiBorderRadius.fromMap(map["attr"]["borderRadius"]),
+              : XSduiBorderRadius.fromMap(map["borderRadius"]),
           borderSide: BorderSide(
-            color: HexColor.fromHex(map["attr"]["color"]),
-            width: map["attr"]["width"] ?? 1.0,
+            color: HexColor.fromHex(map["color"]),
+            width: map["width"] ?? 1.0,
           ),
         );
 
       default:
         return UnderlineInputBorder(
-          borderRadius: map["attr"]["borderRadius"] == null
+          borderRadius: map["borderRadius"] == null
               ? const BorderRadius.all(Radius.circular(4.0))
-              : XSduiBorderRadius.fromMap(map["attr"]["borderRadius"]),
+              : XSduiBorderRadius.fromMap(map["borderRadius"]),
           borderSide: BorderSide(
-            color: HexColor.fromHex(map["attr"]["color"]),
-            width: map["attr"]["width"] ?? 1.0,
+            color: HexColor.fromHex(map["color"]),
+            width: map["width"] ?? 1.0,
           ),
         );
     }

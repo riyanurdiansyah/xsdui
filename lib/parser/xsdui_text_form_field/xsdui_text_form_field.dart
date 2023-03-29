@@ -9,19 +9,19 @@ class XSduiTextFormField {
   }) =>
       TextFormField(
         decoration: InputDecoration(
-          border: json["attr"]["border"] == null
+          border: json["border"] == null
               ? null
-              : XSduiInputBorder.fromMap(json["attr"]["border"]),
-          errorBorder: json["attr"]["errorBorder"] == null
+              : XSduiInputBorder.fromMap(json["border"]),
+          errorBorder: json["errorBorder"] == null
               ? null
-              : XSduiInputBorder.fromMap(json["attr"]["errorBorder"]),
-          disabledBorder: json["attr"]["disabledBorder"] == null
+              : XSduiInputBorder.fromMap(json["errorBorder"]),
+          disabledBorder: json["disabledBorder"] == null
               ? null
-              : XSduiInputBorder.fromMap(json["attr"]["disabledBorder"]),
-          contentPadding: json["attr"]["contentPadding"] == null
+              : XSduiInputBorder.fromMap(json["disabledBorder"]),
+          contentPadding: json["contentPadding"] == null
               ? null
-              : XSduiEdgeInsetPadding.fromMap(json["attr"]["contentPadding"]),
-          labelText: json["attr"]["labelText"],
+              : XSduiEdgeInsetPadding.fromMap(json["contentPadding"]),
+          labelText: json["labelText"],
         ),
       );
 }
