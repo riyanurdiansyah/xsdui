@@ -7,8 +7,8 @@ class XSduiSizedBox {
     required Map<String, dynamic> json,
   }) =>
       SizedBox(
-        width: json["attr"]["width"],
-        height: json["attr"]["height"],
+        width: json["width"],
+        height: json["height"],
         child: json["child"] == null
             ? const SizedBox()
             : XSdui.fromJson(context, json: json["child"]),
