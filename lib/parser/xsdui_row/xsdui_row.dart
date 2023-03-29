@@ -15,7 +15,7 @@ class XSduiRow {
         mainAxisAlignment:
             XSduiMainAxisAlignment.fromString(json["mainAxisAlignment"]),
         children: List.generate(
-          json["children"] == null ? 0 : json["children"].length,
+          json["children"]?.length ?? 0,
           (index) => XSdui.fromJson(context, json: json["children"][index]),
         ),
       );

@@ -42,8 +42,6 @@ class MyApp extends StatelessWidget {
             "type": "singleChildScrollView",
             "child": {
               "type": "column",
-              "crossAxisAlignment": "end",
-              "mainAxisAlignment": "spaceAround",
               "children": [
                 {
                   "type": "text",
@@ -92,6 +90,93 @@ class MyApp extends StatelessWidget {
                     "width": "50",
                     "height": "50",
                     "color": "#F0F0F0"
+                  }
+                },
+                {
+                  "type": "container",
+                  "fitWidth": true,
+                  "height": 200,
+                  "color": "#598cb6",
+                  "child": {
+                    "type": "row",
+                    "mainAxisAlignment": "spaceAround",
+                    "children": [
+                      {
+                        "type": "container",
+                        "height": 50,
+                        "width": 50,
+                        "color": "#000000"
+                      },
+                      {
+                        "type": "container",
+                        "height": 50,
+                        "width": 50,
+                        "color": "#df4382"
+                      },
+                      {
+                        "type": "elevatedButton",
+                        "color": "#df4382",
+                        "style": {
+                          "elevation": 4.0,
+                          "padding": {
+                            "paddingType": "all",
+                            "padding": 5.0,
+                          }
+                        }
+                      },
+                      {
+                        "type": "inkWell",
+                        "child": {
+                          "type": "container",
+                          "height": 50,
+                          "width": 50,
+                          "color": "#df4382",
+                          "borderRadius": {
+                            "borderRadiusType": "circular",
+                            "radius": 25.5,
+                          },
+                        },
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "container",
+                  "fitWidth": true,
+                  "height": 350,
+                  "color": "#ffffff",
+                  "child": {
+                    "type": "listView",
+                    "physics": "bouncing",
+                    "scrollDirection": "vertical",
+                    "children": [
+                      {
+                        "type": "container",
+                        "color": "#df4382",
+                        "height": 50,
+                        "width": 50,
+                        "style": {
+                          "elevation": 4.0,
+                          "padding": {
+                            "paddingType": "all",
+                            "padding": 5.0,
+                          }
+                        }
+                      },
+                      {
+                        "type": "container",
+                        "color": "#ef8830",
+                        "height": 50,
+                        "width": 50,
+                        "style": {
+                          "elevation": 4.0,
+                          "padding": {
+                            "paddingType": "all",
+                            "padding": 5.0,
+                          }
+                        }
+                      },
+                    ]
                   }
                 }
               ]
