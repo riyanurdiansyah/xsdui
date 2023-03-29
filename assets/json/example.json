@@ -1,38 +1,40 @@
 {
-    "type" : "container",
-    "attr" : {
-        "width" : 300.0,
-        "height" : 300.0,
-        "color" : "#F2F2F2"
+    "type": "container",
+    "attr": {
+      "width": 300.0,
+      "height": 300.0,
+      "color": "#AA4A44",
+      "borderRadius": {
+        "borderRadiusType": "circular",
+        "radius": 10.0
+      }
     },
-    "child" : {
-        "type" : "column",
-        "attr" : {
-            "mainAxisAlignment" : "center",
-            "crossAxisAlignment" : "start",
-            "mainAxisSize" : "min"
+    "child": {
+      "type": "column",
+      "attr": {
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "start",
+        "mainAxisSize": "min"
+      },
+      "children": [
+        {
+          "type": "container",
+          "attr": {
+            "width": 50.0,
+            "height": 50.0,
+            "color": "#EE4B2B"
+          }
         },
-        "children" : [
-            {
-                "type" : "container",
-                "attr" : {
-                    "width" : 50.0,
-                    "height" : 50.0,
-                    "color" : "#F2F2F2"
-                }
-            },
-            {
-                "type" : "text",
-                "text" : "Jangan Lupa Makan",
-                "attr" : {
-                    "height" : 1.4,
-                    "fontSize" : 12.5,
-                    "fontFamily" : "SourceSansPro",
-                    "fontWeight" : "w600"
-                }
-            }
-        ]
+        {
+          "type": "text",
+          "text": "Jangan Lupa Makan",
+          "attr": {
+            "height": 1.4,
+            "fontSize": 12.5,
+            "fontFamily": "SourceSansPro",
+            "fontWeight": "w600"
+          }
+        }
+      ]
     }
-}
-
-
+  }

@@ -1,7 +1,7 @@
 name: xsdui
-description: A new Flutter package project.
+description: For Server Driven UI
 version: 0.0.1
-homepage: null
+repository: "https://github.com/riyanurdiansyah/xsdui"
 
 environment:
   sdk: '>=2.18.5 <3.0.0'

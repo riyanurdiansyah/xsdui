@@ -1,0 +1,36 @@
+{
+    "type" : "scaffold",
+    "appBar" : {
+        "centerTitle" : true,
+        "automaticallyImplyLeading" : false,
+        "backgroundColor" : "#EE4B2B",
+        "elevation" : 4.0,
+        "titleSpacing" : 15.0,
+        "title" : {
+            "type" : "text",
+            "text" : "App Bar Server"
+        },
+        "leading" : {
+            "type" : "container",
+            "attr" : {
+                "width" : 25.0,
+                "height" : 25.0,
+                "color" : "#FFFFFF",
+                "shape" : "rectangle",
+                "borderRadius" : {
+                    "borderRadiusType" : "circular",
+                    "radius" : 10.0
+                }
+            }
+        },
+        "actions" : [
+            {
+                "type" : "container",
+                "child" : {
+                    "type" : "text",
+                    "text" : "Action 1"
+                }
+            }
+        ]
+    }
+}

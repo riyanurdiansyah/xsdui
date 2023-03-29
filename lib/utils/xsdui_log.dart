@@ -1,7 +1,7 @@
 import 'package:logger/logger.dart';
 
-class Log {
-  const Log._();
+class XSduiLog {
+  const XSduiLog._();
 
   static final _log = Logger();
 
