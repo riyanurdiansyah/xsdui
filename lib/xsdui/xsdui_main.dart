@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:xsdui/parser/xsdui_image/xsdui_image.dart';
+import 'package:xsdui/parser/xsdui_single_child_scroll_view/xsdui_single_child_scroll_view.dart';
 import 'package:xsdui/xsdui.dart';
 
 class XSdui {
@@ -22,7 +24,13 @@ class XSdui {
         return XSduiScaffold.fromJson(context, json: json);
 
       case "text":
-        return XSduiText.parse(context, json: json);
+        return XSduiText.fromJson(context, json: json);
+
+      case "image":
+        return XSduiImage.fromJson(context, json: json);
+
+      case "singlechildscrollview":
+        return XSduiSingleChildScrollView.fromJson(context, json: json);
 
       default:
         return const SizedBox();
