@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xsdui/parser/xsdui_elevated_button/xsdui_elevated_button.dart';
+import 'package:xsdui/parser/xsdui_gesture_detector/xsdui_gesture_detector.dart';
 import 'package:xsdui/parser/xsdui_image/xsdui_image.dart';
 import 'package:xsdui/parser/xsdui_inkwell/xsdui_inkwell.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view.dart';
@@ -29,6 +30,9 @@ class XSdui {
       case XSduiWidgetName.elevatedButton:
         return XSduiElevatedButton.fromJson(context, json: json);
 
+      case XSduiWidgetName.gestureDetector:
+        return XSduiGestureDetector.fromJson(context, json: json);
+
       case XSduiWidgetName.image:
         return XSduiImage.fromJson(context, json: json);
 
@@ -46,6 +50,12 @@ class XSdui {
 
       case XSduiWidgetName.row:
         return XSduiRow.fromJson(context, json: json);
+
+      case XSduiWidgetName.scaffold:
+        return XSduiScaffold.fromJson(context, json: json);
+
+      case XSduiWidgetName.text:
+        return XSduiText.fromJson(context, json: json);
 
       case XSduiWidgetName.singleChildScrollView:
         return XSduiSingleChildScrollView.fromJson(context, json: json);
