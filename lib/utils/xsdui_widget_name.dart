@@ -7,11 +7,11 @@ abstract class XSduiWidgetName {
 
   static const row = "row";
 
-  static const column = "text";
+  static const column = "column";
 
   static const image = "image";
 
-  static const container = "scaffold";
+  static const container = "container";
 
   static const inkWell = "inkwell";
 
@@ -19,9 +19,11 @@ abstract class XSduiWidgetName {
 
   static const elevatedButton = "elevatedbutton";
 
+  static const gestureDetector = "gesturedetector";
+
   static const listView = "listview";
 
-  static const listViewBuilder = "listViewbuilder";
+  static const listViewBuilder = "listviewbuilder";
 
   static const listViewSeparated = "listviewseparated";
 }

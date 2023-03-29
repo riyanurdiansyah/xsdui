@@ -21,6 +21,34 @@ class XSduiImage {
       );
     }
 
+    if (json["imageType"] == "file") {
+      return Image.file(
+        json["link"],
+        filterQuality: XSduiFilterQuality.fromString(json["filterQuality"]),
+        fit: json["fit"] == null ? null : XSduiImageFit.fromString(json["fit"]),
+        errorBuilder: (_, __, ___) {
+          if (json["errorBuilder"] != null) {
+            return XSdui.fromJson(context, json: json["errorBuilder"]);
+          }
+          return const SizedBox();
+        },
+      );
+    }
+
+    if (json["imageType"] == "memory") {
+      return Image.memory(
+        json["link"],
+        filterQuality: XSduiFilterQuality.fromString(json["filterQuality"]),
+        fit: json["fit"] == null ? null : XSduiImageFit.fromString(json["fit"]),
+        errorBuilder: (_, __, ___) {
+          if (json["errorBuilder"] != null) {
+            return XSdui.fromJson(context, json: json["errorBuilder"]);
+          }
+          return const SizedBox();
+        },
+      );
+    }
+
     return Image.asset(
       json["link"],
       filterQuality: XSduiFilterQuality.fromString(json["filterQuality"]),
