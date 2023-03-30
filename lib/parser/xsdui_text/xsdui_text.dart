@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xsdui/parser/xsdui_column/xsdui_column_extension.dart';
 import 'package:xsdui/utils/xsdui_extension.dart';
 
 import 'xsdui_text_extension.dart';
@@ -10,10 +11,22 @@ class XSduiText {
   }) =>
       Text(
         json["title"],
+        textAlign: json["textAlign"] == null
+            ? null
+            : XSduiTextAlign.fromString(json["textAlign"]),
         maxLines: json["maxLines"],
         overflow: json["overflow"] == null
             ? null
             : XSduiTextOverflow.fromString(json["overflow"]),
+        textDirection: json["textDirection"] == null
+            ? null
+            : XSduiTextDirection.fromString(json["textDirection"]),
+        softWrap: json["softWrap"],
+        textScaleFactor: json["textScaleFactor"],
+        semanticsLabel: json["semanticsLabel"],
+        selectionColor: json["selectionColor"] == null
+            ? null
+            : HexColor.fromHex(json["selectionColor"]),
         style: TextStyle(
           fontSize: json["fontSize"],
           fontFamily: json["fontFamily"],

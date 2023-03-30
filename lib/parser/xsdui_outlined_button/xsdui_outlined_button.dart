@@ -10,6 +10,18 @@ class XSduiOutlinedButton {
   }) =>
       OutlinedButton(
         onPressed: () {},
+        autofocus: json["autoFocus"] ?? false,
+        focusNode: json["focusNode"] == null
+            ? null
+            : FocusNode(
+                canRequestFocus: json["focusNode"]["canRequestFocus"] ?? true,
+                debugLabel: json["focusNode"]["debugLabel"],
+                descendantsAreFocusable:
+                    json["focusNode"]["descendantsAreFocusable"] ?? true,
+                descendantsAreTraversable:
+                    json["focusNode"]["descendantsAreTraversable"] ?? true,
+                skipTraversal: json["focusNode"]["skipTraversal"] ?? false,
+              ),
         style: ButtonStyle(
           backgroundColor: json["color"] == null
               ? null

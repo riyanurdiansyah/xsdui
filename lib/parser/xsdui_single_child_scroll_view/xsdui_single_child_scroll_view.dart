@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xsdui/parser/xsdui_container/xsdui_container_extension.dart';
 import 'package:xsdui/parser/xsdui_single_child_scroll_view/xsdui_single_child_scroll_view_extension.dart';
+import 'package:xsdui/parser/xsdui_stack/xsdui_stack_extension.dart';
 import 'package:xsdui/xsdui.dart';
 
 class XSduiSingleChildScrollView {
@@ -9,6 +10,9 @@ class XSduiSingleChildScrollView {
     required Map<String, dynamic> json,
   }) =>
       SingleChildScrollView(
+        clipBehavior: XSduiClipBehavior.fromString(json["clipBehavior"]),
+        dragStartBehavior:
+            XSduiDragStartBehavior.fromString(json["dragStartBehavior"]),
         padding: json["padding"] == null
             ? null
             : XSduiEdgeInsetPadding.fromMap(json["padding"]),

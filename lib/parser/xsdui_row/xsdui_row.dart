@@ -9,6 +9,14 @@ class XSduiRow {
     required Map<String, dynamic> json,
   }) =>
       Row(
+        textDirection: json["textDirection"] == null
+            ? null
+            : XSduiTextDirection.fromString(json["textDirection"]),
+        textBaseline: json["textBaseline"] == null
+            ? null
+            : XSduiTextBaseline.fromString(json["textBaseline"]),
+        verticalDirection:
+            XSduiVerticalDirection.fromString(json["verticalDirection"]),
         crossAxisAlignment:
             XSduiCrossAxisAlignment.fromString(json["crossAxisAlignment"]),
         mainAxisSize: XSduiMainAxisSize.fromString(json["mainAxisSize"]),

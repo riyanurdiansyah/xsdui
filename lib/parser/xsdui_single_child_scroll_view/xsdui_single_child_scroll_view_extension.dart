@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 extension XSduiAxis on Axis {
@@ -30,6 +31,19 @@ extension XSduiScrollPhysics on ScrollPhysics {
         return const PageScrollPhysics();
       default:
         return const ScrollPhysics();
+    }
+  }
+}
+
+extension XSduiDragStartBehavior on DragStartBehavior {
+  static DragStartBehavior fromString(String? drag) {
+    switch (drag) {
+      case "down":
+        return DragStartBehavior.down;
+      case "start":
+        return DragStartBehavior.start;
+      default:
+        return DragStartBehavior.start;
     }
   }
 }
