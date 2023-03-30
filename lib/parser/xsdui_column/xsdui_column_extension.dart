@@ -56,3 +56,44 @@ extension XSduiMainAxisSize on MainAxisSize {
     }
   }
 }
+
+extension XSduiTextBaseline on TextBaseline {
+  static TextBaseline fromString(String textBaseline) {
+    switch (textBaseline) {
+      case "alphabetic":
+        return TextBaseline.alphabetic;
+      case "ideographic":
+        return TextBaseline.ideographic;
+      default:
+        return TextBaseline.alphabetic;
+    }
+  }
+}
+
+extension XSduiTextDirection on TextDirection {
+  static TextDirection fromString(String textBaseline) {
+    switch (textBaseline) {
+      case "ltr":
+        return TextDirection.ltr;
+      case "rtl":
+        return TextDirection.rtl;
+      default:
+        return TextDirection.ltr;
+    }
+  }
+}
+
+extension XSduiVerticalDirection on VerticalDirection {
+  static VerticalDirection fromString(String? cross) {
+    switch (cross) {
+      case null:
+        return VerticalDirection.down;
+      case "min":
+        return VerticalDirection.up;
+      case "down":
+        return VerticalDirection.down;
+      default:
+        return VerticalDirection.down;
+    }
+  }
+}
