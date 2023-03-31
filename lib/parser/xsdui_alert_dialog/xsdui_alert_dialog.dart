@@ -32,8 +32,6 @@ class XSduiAlertDialog {
             : XSdui.fromJson(context, json: json["content"]),
         elevation: json["elevation"],
         clipBehavior: XSduiClipBehavior.fromString(json["clipBehavior"]),
-        iconColor:
-            json["color"] == null ? null : HexColor.fromHex(json["color"]),
         scrollable: json["scrollable"] ?? false,
         title: json["title"] == null
             ? null

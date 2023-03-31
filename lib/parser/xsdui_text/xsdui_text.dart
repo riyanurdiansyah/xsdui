@@ -24,9 +24,6 @@ class XSduiText {
         softWrap: json["softWrap"],
         textScaleFactor: json["textScaleFactor"],
         semanticsLabel: json["semanticsLabel"],
-        selectionColor: json["selectionColor"] == null
-            ? null
-            : HexColor.fromHex(json["selectionColor"]),
         style: TextStyle(
           fontSize: json["fontSize"],
           fontFamily: json["fontFamily"],
