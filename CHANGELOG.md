@@ -1,4 +1,9 @@
 # CHANGELOG
+
+## 1.0.3
+
+- Fixed for flutter old version
+
 ## 1.0.2
 
 New Features
