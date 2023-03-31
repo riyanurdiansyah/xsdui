@@ -18,9 +18,6 @@ class XSduiAlertDialog {
         actionsAlignment: json["actionsAlignment"] == null
             ? null
             : XSduiMainAxisAlignment.fromString(json["actionsAlignment"]),
-        actionsPadding: json["actionsPadding"] == null
-            ? null
-            : XSduiEdgeInsetPadding.fromMap(json["actionsPadding"]),
         alignment: json["alignment"] == null
             ? null
             : XSduiAlignment.fromString(json["alignment"]),
