@@ -28,4 +28,14 @@ abstract class XSduiWidgetName {
   static const listViewBuilder = "listviewbuilder";
 
   static const listViewSeparated = "listviewseparated";
+
+  static const padding = "padding";
+
+  static const alertDialog = "alertdialog";
+
+  static const spacer = "spacer";
+
+  static const divider = "divider";
+
+  static const verticalDivider = "verticaldivider";
 }

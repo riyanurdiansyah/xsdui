@@ -51,13 +51,16 @@ extension XSduiEdgeInsetPadding on EdgeInsets {
           map["bottom"],
         );
 
-      default:
+      case "only":
         return EdgeInsets.only(
           left: map["left"] ?? 0.0,
           right: map["right"] ?? 0.0,
           top: map["top"] ?? 0.0,
           bottom: map["bottom"] ?? 0.0,
         );
+
+      default:
+        return EdgeInsets.zero;
     }
   }
 }
