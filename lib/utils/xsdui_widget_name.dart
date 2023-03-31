@@ -1,3 +1,5 @@
+///this is standard [WidgetName]
+///can be convert to [Widget]
 abstract class XSduiWidgetName {
   static const scaffold = "scaffold";
 

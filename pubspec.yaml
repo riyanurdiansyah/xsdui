@@ -1,6 +1,6 @@
 name: xsdui
-description: For Server Driven UI
-version: 1.0.0
+description: For Server Driven UI to create a dynamic UI in your App. Parse JSON to Widget be easier
+version: 1.0.1
 repository: "https://github.com/riyanurdiansyah/xsdui"
 
 environment:
