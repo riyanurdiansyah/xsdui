@@ -1,4 +1,20 @@
 # CHANGELOG
+## 1.0.2
+
+New Features
+
+- AlertDialog from json
+- Padding from json
+- Spacer from json
+- Divider from json
+
+## 1.0.1
+
+New Features
+
+- GestureDetector from json
+- InkWell from json
+- Stack from json
 
 ## 1.0.0
 
