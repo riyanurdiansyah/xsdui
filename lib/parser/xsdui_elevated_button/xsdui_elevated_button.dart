@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:xsdui/parser/xsdui_container/xsdui_container_extension.dart';
 import 'package:xsdui/utils/xsdui_extension.dart';
 import 'package:xsdui/xsdui.dart';
-import 'package:xsdui/xsdui/xsdui_network.dart';
 
 class XSduiElevatedButton {
-  final XSduiNetwork _network = XSduiNetwork();
   static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
@@ -13,8 +11,7 @@ class XSduiElevatedButton {
       ElevatedButton(
         onPressed: () {
           if (json["onPressed"]["type"] == "http") {
-            debugPrint("CEK");
-            XSduiNetwork().getRequest(url: json["onPressed"]["url"]);
+            XSduiNetwork.getRequest(url: json["onPressed"]["url"]);
           }
         },
         style: ButtonStyle(
