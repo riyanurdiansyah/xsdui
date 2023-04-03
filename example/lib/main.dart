@@ -115,13 +115,20 @@ class MyApp extends StatelessWidget {
                       },
                       {
                         "type": "elevatedButton",
-                        "color": "#df4382",
+                        "color": "#a31688",
                         "style": {
                           "elevation": 4.0,
                           "padding": {
                             "paddingType": "all",
                             "padding": 5.0,
-                          }
+                          },
+                        },
+                        "child": {"type": "text", "title": "Coba"},
+                        "onPressed": {
+                          "type": "http",
+                          "method": "get",
+                          "url":
+                              "https://prakerja-api-course.arkademi.com/api/v1/prakerja/get_prakerja_marketplace_course"
                         }
                       },
                       {
