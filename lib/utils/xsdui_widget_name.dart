@@ -13,6 +13,12 @@ abstract class XSduiWidgetName {
 
   static const image = "image";
 
+  static const appbar = "appbar";
+
+  static const bottomnavigationbar = "bottomnavigationbar";
+
+  static const drawer = "drawer";
+
   static const container = "container";
 
   static const inkWell = "inkwell";
@@ -36,6 +42,8 @@ abstract class XSduiWidgetName {
   static const spacer = "spacer";
 
   static const divider = "divider";
+
+  static const stack = "stack";
 
   static const verticalDivider = "verticaldivider";
 }
