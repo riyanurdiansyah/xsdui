@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xsdui/builder/home/xsdui_display_page.dart';
-import 'package:xsdui/builder/models/container/xsdui_container_model.dart';
+import 'package:xsdui/builder/sidebar/xsdui_side_bar_tree.dart';
 import 'package:xsdui/builder/sidebar/xsdui_side_bar.dart';
+import 'package:xsdui/builder/sidebar/xsdui_side_bar_config.dart';
 import 'package:xsdui/utils/xsdui_constanta.dart';
 
 import '../bloc/home_bloc.dart';
@@ -28,9 +29,7 @@ class _XSduiHomePageState extends State<XSduiHomePage> {
     return BlocProvider<HomeBloc>(
       create: (context) => _homeBloc,
       child: Scaffold(
-        drawer: XSduiSideBar(
-          homeBloc: _homeBloc,
-        ),
+        drawer: XSduiSideBar(homeBloc: _homeBloc),
         body: Column(
           children: [
             Container(
@@ -87,38 +86,25 @@ class _XSduiHomePageState extends State<XSduiHomePage> {
                           child: BlocBuilder<HomeBloc, HomeState>(
                             builder: (context, state) {
                               if (state.indexSelected == 0) {
-                                return XSduiSideBar(
-                                  homeBloc: _homeBloc,
-                                );
+                                return XSduiSideBar(homeBloc: _homeBloc);
                               }
-                              return SizedBox(
-                                child: Column(
-                                  children: [
-                                    Text(state.widget.type),
-                                    if (state.widget.widget != null)
-                                      if (state.widget.widget
-                                          is XSduiContainerModel)
-                                        Text((state.widget.widget
-                                                as XSduiContainerModel)
-                                            .type)
-                                  ],
-                                ),
-                              );
+                              return const XSduiSideBarTree();
                             },
                           ),
                         );
                       },
                     ),
                   ),
-                  const Expanded(
+                  Expanded(
                     flex: 6,
-                    child: XSduiDisplayPage(),
+                    child: XSduiDisplayPage(
+                      homeBloc: _homeBloc,
+                    ),
                   ),
                   Expanded(
                     flex: 3,
-                    child: Container(
-                      alignment: Alignment.center,
-                      color: Colors.blue.shade400,
+                    child: XSduiSideBarConfig(
+                      homeBloc: _homeBloc,
                     ),
                   ),
                 ],
