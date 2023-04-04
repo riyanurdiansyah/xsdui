@@ -88,7 +88,7 @@ class _XSduiHomePageState extends State<XSduiHomePage> {
                               if (state.indexSelected == 0) {
                                 return XSduiSideBar(homeBloc: _homeBloc);
                               }
-                              return const XSduiSideBarTree();
+                              return XSduiSideBarTree(homeBloc: _homeBloc);
                             },
                           ),
                         );
