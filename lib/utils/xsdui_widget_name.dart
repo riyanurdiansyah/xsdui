@@ -39,6 +39,8 @@ abstract class XSduiWidgetName {
 
   static const alertDialog = "alertdialog";
 
+  static const textFormField = "textformfield";
+
   static const spacer = "spacer";
 
   static const divider = "divider";

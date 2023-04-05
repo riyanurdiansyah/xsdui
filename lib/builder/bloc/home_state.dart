@@ -4,7 +4,7 @@ class HomeState extends Equatable {
   const HomeState({
     this.indexSelected = 0,
     this.widget = emptyWidget,
-    this.jsonUi = defaultScaffold,
+    this.jsonUi = const {},
     this.jsonSelected = const {},
   });
 

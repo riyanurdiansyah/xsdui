@@ -24,7 +24,14 @@ class XSduiDisplayPage extends StatelessWidget {
                 BoxDecoration(border: Border.all(color: Colors.grey.shade400)),
             child: BlocBuilder<HomeBloc, HomeState>(
               builder: (context, state) {
-                return XSdui.fromJson(context, json: homeBloc.state.jsonUi);
+                return DragTarget<String>(
+                  onAccept: (data) {
+                    homeBloc.add(HomeOnDragEvent(type: data));
+                  },
+                  builder: (context, candidateData, rejectedData) {
+                    return XSdui.fromJson(context, json: homeBloc.state.jsonUi);
+                  },
+                );
               },
             ),
           ),

@@ -11,7 +11,9 @@ extension XSduiInputBorder on InputBorder {
               ? const BorderRadius.all(Radius.circular(4.0))
               : XSduiBorderRadius.fromMap(map["borderRadius"]),
           borderSide: BorderSide(
-            color: HexColor.fromHex(map["color"]),
+            color: map["color"] == null
+                ? const Color(0xFF000000)
+                : HexColor.fromHex(map["color"]),
             width: map["width"] ?? 1.0,
           ),
         );
@@ -22,7 +24,9 @@ extension XSduiInputBorder on InputBorder {
               ? const BorderRadius.all(Radius.circular(4.0))
               : XSduiBorderRadius.fromMap(map["borderRadius"]),
           borderSide: BorderSide(
-            color: HexColor.fromHex(map["color"]),
+            color: map["color"] == null
+                ? const Color(0xFF000000)
+                : HexColor.fromHex(map["color"]),
             width: map["width"] ?? 1.0,
           ),
         );
@@ -33,10 +37,54 @@ extension XSduiInputBorder on InputBorder {
               ? const BorderRadius.all(Radius.circular(4.0))
               : XSduiBorderRadius.fromMap(map["borderRadius"]),
           borderSide: BorderSide(
-            color: HexColor.fromHex(map["color"]),
+            color: map["color"] == null
+                ? const Color(0xFF000000)
+                : HexColor.fromHex(map["color"]),
             width: map["width"] ?? 1.0,
           ),
         );
+    }
+  }
+}
+
+extension XSduiTextInputType on TextInputType {
+  static TextInputType fromJson(String input) {
+    switch (input) {
+      case "name":
+        return TextInputType.name;
+      case "number":
+        return TextInputType.number;
+      case "emailAddress":
+        return TextInputType.emailAddress;
+      case "text":
+        return TextInputType.text;
+      case "multiline":
+        return TextInputType.multiline;
+      default:
+        return TextInputType.text;
+    }
+  }
+}
+
+extension XSduiTextInputAction on TextInputAction {
+  static TextInputAction fromJson(String input) {
+    switch (input) {
+      case "done":
+        return TextInputAction.done;
+      case "go":
+        return TextInputAction.go;
+      case "newline":
+        return TextInputAction.newline;
+      case "next":
+        return TextInputAction.next;
+      case "search":
+        return TextInputAction.search;
+      case "send":
+        return TextInputAction.send;
+      case "none":
+        return TextInputAction.none;
+      default:
+        return TextInputAction.done;
     }
   }
 }

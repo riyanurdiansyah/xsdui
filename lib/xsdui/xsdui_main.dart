@@ -12,6 +12,7 @@ import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_separated.dart';
 import 'package:xsdui/parser/xsdui_padding/xsdui_padding.dart';
 import 'package:xsdui/parser/xsdui_single_child_scroll_view/xsdui_single_child_scroll_view.dart';
 import 'package:xsdui/parser/xsdui_spacer/xsdui_spacer.dart';
+import 'package:xsdui/parser/xsdui_text_form_field/xsdui_text_form_field.dart';
 import 'package:xsdui/utils/xsdui_widget_name.dart';
 import 'package:xsdui/xsdui.dart';
 
@@ -79,6 +80,9 @@ class XSdui {
 
       case XSduiWidgetName.alertDialog:
         return XSduiAlertDialog.fromJson(context, json: json);
+
+      case XSduiWidgetName.textFormField:
+        return XSduiTextFormField.fromJson(context, json: json);
 
       default:
         return const SizedBox();

@@ -127,7 +127,7 @@ List<String> listAlignment = [
 //   }
 // };
 
-const defaultScaffold = {
+Map<String, dynamic> defaultScaffold = {
   "type": "Scaffold",
 };
 

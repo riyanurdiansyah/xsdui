@@ -24,9 +24,7 @@ class XSduiSideBarConfig extends StatelessWidget {
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
               if (state.jsonSelected.isEmpty) {
-                return Container(
-                  color: Colors.red,
-                );
+                return Container(color: Colors.red);
               }
               if (state.jsonSelected["type"].toString().toLowerCase() ==
                   "container") {

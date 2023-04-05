@@ -23,3 +23,9 @@ class HomeOnTapTreeEvent extends HomeEvent {
 
   final Map<String, dynamic> json;
 }
+
+class HomeOnDragEvent extends HomeEvent {
+  const HomeOnDragEvent({required this.type});
+
+  final String type;
+}

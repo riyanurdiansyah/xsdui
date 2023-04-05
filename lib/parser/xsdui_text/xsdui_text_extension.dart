@@ -67,8 +67,11 @@ extension XSduiTextOverflow on TextOverflow {
 }
 
 extension XSduiTextAlign on TextAlign {
-  static TextAlign fromString(String overflow) {
+  static TextAlign fromString(String? overflow) {
     switch (overflow) {
+      case null:
+        return TextAlign.start;
+
       case "center":
         return TextAlign.center;
 
@@ -77,8 +80,10 @@ extension XSduiTextAlign on TextAlign {
 
       case "justify":
         return TextAlign.justify;
+
       case "left":
         return TextAlign.left;
+
       case "right":
         return TextAlign.right;
 
