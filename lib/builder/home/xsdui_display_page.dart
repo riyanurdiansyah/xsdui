@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xsdui/utils/xsdui_constanta.dart';
-import 'package:xsdui/xsdui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../xsdui.dart';
 import '../bloc/home_bloc.dart';
 
 class XSduiDisplayPage extends StatelessWidget {
@@ -18,9 +18,15 @@ class XSduiDisplayPage extends StatelessWidget {
       body: Center(
         child: AspectRatio(
           aspectRatio: 1080 / 2220,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 50),
-            child: XSdui.fromJson(context, json: tree),
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 100, horizontal: 50),
+            decoration:
+                BoxDecoration(border: Border.all(color: Colors.grey.shade400)),
+            child: BlocBuilder<HomeBloc, HomeState>(
+              builder: (context, state) {
+                return XSdui.fromJson(context, json: homeBloc.state.jsonUi);
+              },
+            ),
           ),
         ),
       ),

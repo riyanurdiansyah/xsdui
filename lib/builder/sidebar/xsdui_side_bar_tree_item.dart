@@ -18,6 +18,9 @@ class XSduiSideBarTreeItem extends StatelessWidget {
     if (json != null) {
       return ExpansionTile(
         title: Text(json!["type"]),
+        onExpansionChanged: (val) {
+          homeBloc.add(HomeOnTapTreeEvent(json: json!));
+        },
         children: [
           XSduiSideBarTreeItemLast(
             json: json!["child"],

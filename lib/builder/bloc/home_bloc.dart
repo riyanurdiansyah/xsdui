@@ -14,6 +14,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) {});
     on<HomeChangeIndexEvent>(_onChangeIndex);
     on<HomeOnTapWidget>(_onTapWidget);
+    on<HomeOnTapTreeEvent>(_onTapTree);
   }
 
   FutureOr<void> _onChangeIndex(
@@ -25,5 +26,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     var tempWidget = state.widget.copyWith(widget: event.widget);
     debugPrint("CEK J : ${tempWidget.toJson()}");
     emit(state.copyWith(widget: tempWidget));
+  }
+
+  FutureOr<void> _onTapTree(HomeOnTapTreeEvent event, Emitter<HomeState> emit) {
+    emit(state.copyWith(jsonSelected: event.json));
   }
 }

@@ -11,7 +11,9 @@ class XSduiScaffold {
     required Map<String, dynamic> json,
   }) =>
       Scaffold(
-        appBar: XSduiAppbar.fromJson(context, json: json["appBar"]),
+        appBar: json["appBar"] == null
+            ? null
+            : XSduiAppbar.fromJson(context, json: json["appBar"]),
         backgroundColor: json["backgroundColor"] == null
             ? null
             : HexColor.fromHex(json["backgroundColor"]),
@@ -48,7 +50,9 @@ class XSduiScaffold {
                 : XSduiScaffoldFloatingActionButtonLocation.fromString(
                     json["floatingActionButtonLocation"]),
         resizeToAvoidBottomInset: json["resizeToAvoidBottomInset"],
-        body: XSdui.fromJson(context, json: json["body"]),
+        body: json["body"] == null
+            ? null
+            : XSdui.fromJson(context, json: json["body"]),
         bottomNavigationBar: json["bottomNavigationBar"] == null
             ? null
             : XSdui.fromJson(context, json: json["bottomNavigationBar"]),

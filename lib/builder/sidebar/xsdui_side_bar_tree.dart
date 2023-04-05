@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xsdui/builder/bloc/home_bloc.dart';
-import 'package:xsdui/utils/xsdui_constanta.dart';
 
 import 'xsdui_side_bar_tree_item.dart';
 
@@ -15,16 +15,26 @@ class XSduiSideBarTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: ExpansionTile(
-          title: Text(tree["type"]),
-          children: [
-            XSduiSideBarTreeItem(
-              json: tree["body"],
-              homeBloc: homeBloc,
+      body: BlocBuilder<HomeBloc, HomeState>(
+        builder: (context, state) {
+          if (state.jsonUi.isEmpty) {
+            return const SizedBox();
+          }
+          return SingleChildScrollView(
+            child: ExpansionTile(
+              onExpansionChanged: (val) {
+                homeBloc.add(HomeOnTapTreeEvent(json: state.jsonUi));
+              },
+              title: Text(homeBloc.state.jsonUi["type"]),
+              children: [
+                XSduiSideBarTreeItem(
+                  json: state.jsonUi["body"],
+                  homeBloc: homeBloc,
+                ),
+              ],
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

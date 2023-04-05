@@ -23,9 +23,8 @@ class XSduiSideBarTreeItemLast extends StatelessWidget {
           if (listJson![index]["children"] == null &&
               listJson![index]["child"] == null) {
             return ListTile(
-              onTap: () {
-                debugPrint("CEK JSON : ${listJson![index]}");
-              },
+              onTap: () =>
+                  homeBloc.add(HomeOnTapTreeEvent(json: listJson![index])),
               title: Text(listJson![index]["type"]),
             );
           }
@@ -41,14 +40,15 @@ class XSduiSideBarTreeItemLast extends StatelessWidget {
     if (json != null) {
       if (json!["child"] == null && json!["children"] == null) {
         return ListTile(
-          onTap: () {
-            debugPrint("CEK JSON 2 : $json");
-          },
+          onTap: () => homeBloc.add(HomeOnTapTreeEvent(json: json!)),
           title: Text(json!["type"]),
         );
       }
       return ExpansionTile(
         title: Text(json!["type"]),
+        onExpansionChanged: (val) {
+          homeBloc.add(HomeOnTapTreeEvent(json: json!));
+        },
         children: [
           XSduiSideBarTreeItemLast(
             json: json!["child"],

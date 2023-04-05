@@ -17,3 +17,9 @@ class HomeOnTapWidget extends HomeEvent {
   const HomeOnTapWidget({required this.widget});
   final dynamic widget;
 }
+
+class HomeOnTapTreeEvent extends HomeEvent {
+  const HomeOnTapTreeEvent({required this.json});
+
+  final Map<String, dynamic> json;
+}

@@ -11,6 +11,7 @@ environment:
 dependencies:
   dio: any
   equatable: any
+  flex_color_picker: any
   flutter:
     sdk: flutter
   flutter_bloc: any
