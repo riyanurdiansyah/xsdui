@@ -40,6 +40,25 @@ extension XSduiMainAxisAlignment on MainAxisAlignment {
         return MainAxisAlignment.start;
     }
   }
+
+  static String? convertToString(MainAxisAlignment? cross) {
+    switch (cross) {
+      case MainAxisAlignment.start:
+        return "start";
+      case MainAxisAlignment.center:
+        return "center";
+      case MainAxisAlignment.end:
+        return "end";
+      case MainAxisAlignment.spaceBetween:
+        return "spaceBetween";
+      case MainAxisAlignment.spaceAround:
+        return "spaceAround";
+      case MainAxisAlignment.spaceEvenly:
+        return "spaceEvenly";
+      default:
+        return null;
+    }
+  }
 }
 
 extension XSduiMainAxisSize on MainAxisSize {
