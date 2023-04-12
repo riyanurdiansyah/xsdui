@@ -17,6 +17,21 @@ extension XSduiCrossAxisAlignment on CrossAxisAlignment {
         return CrossAxisAlignment.center;
     }
   }
+
+  static String? convertToString(CrossAxisAlignment cross) {
+    switch (cross) {
+      case CrossAxisAlignment.start:
+        return "start";
+      case CrossAxisAlignment.center:
+        return "center";
+      case CrossAxisAlignment.end:
+        return "end";
+      case CrossAxisAlignment.stretch:
+        return "strech";
+      default:
+        return null;
+    }
+  }
 }
 
 extension XSduiMainAxisAlignment on MainAxisAlignment {
@@ -74,6 +89,17 @@ extension XSduiMainAxisSize on MainAxisSize {
         return MainAxisSize.max;
     }
   }
+
+  static String? converToString(MainAxisSize size) {
+    switch (size) {
+      case MainAxisSize.min:
+        return "min";
+      case MainAxisSize.max:
+        return "max";
+      default:
+        return null;
+    }
+  }
 }
 
 extension XSduiTextBaseline on TextBaseline {
@@ -87,6 +113,17 @@ extension XSduiTextBaseline on TextBaseline {
         return TextBaseline.alphabetic;
     }
   }
+
+  static String? convertToString(TextBaseline? textBaseline) {
+    switch (textBaseline) {
+      case TextBaseline.alphabetic:
+        return "alphabetic";
+      case TextBaseline.ideographic:
+        return "ideographic";
+      default:
+        return null;
+    }
+  }
 }
 
 extension XSduiTextDirection on TextDirection {
@@ -98,6 +135,17 @@ extension XSduiTextDirection on TextDirection {
         return TextDirection.rtl;
       default:
         return TextDirection.ltr;
+    }
+  }
+
+  static String? convertToString(TextDirection? textBaseline) {
+    switch (textBaseline) {
+      case TextDirection.ltr:
+        return "ltr";
+      case TextDirection.rtl:
+        return "rtl";
+      default:
+        return null;
     }
   }
 }
