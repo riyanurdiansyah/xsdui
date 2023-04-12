@@ -9,55 +9,73 @@ class XSduiScaffold {
   static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
-  }) =>
-      Scaffold(
-        appBar: json["appBar"] == null
-            ? null
-            : XSduiAppbar.fromJson(context, json: json["appBar"]),
-        backgroundColor: json["backgroundColor"] == null
-            ? null
-            : HexColor.fromHex(json["backgroundColor"]),
-        drawer: json["drawer"] == null
-            ? null
-            : XSdui.fromJson(context, json: json["drawer"]),
-        drawerDragStartBehavior:
-            XSduiDragStartBehavior.fromString(json["drawerDragStartBehavior"]),
-        bottomSheet: json["bottomSheet"] == null
-            ? null
-            : XSdui.fromJson(context, json: json["bottomSheet"]),
-        extendBody: json["extendBody"] ?? false,
-        restorationId: json["restorationId"],
-        drawerEdgeDragWidth: json["drawerEdgeDragWidth"],
-        drawerEnableOpenDragGesture:
-            json["drawerEnableOpenDragGesture"] ?? true,
-        drawerScrimColor: json["drawerScrimColor"] == null
-            ? null
-            : HexColor.fromHex(json["drawerScrimColor"]),
-        endDrawer: json["endDrawer"] == null
-            ? null
-            : XSdui.fromJson(context, json: json["endDrawer"]),
-        primary: json["primary"] ?? true,
-        persistentFooterButtons: json["persistentFooterButtons"] == null
-            ? null
-            : List.generate(
-                json["persistentFooterButtons"].length,
-                (index) => XSdui.fromJson(context,
-                    json: json["persistentFooterButtons"][index])),
-        extendBodyBehindAppBar: json["extendBodyBehindAppBar"] ?? false,
-        floatingActionButtonLocation:
-            json["floatingActionButtonLocation"] == null
-                ? null
-                : XSduiScaffoldFloatingActionButtonLocation.fromString(
-                    json["floatingActionButtonLocation"]),
-        resizeToAvoidBottomInset: json["resizeToAvoidBottomInset"],
-        body: json["body"] == null
-            ? null
-            : XSdui.fromJson(context, json: json["body"]),
-        bottomNavigationBar: json["bottomNavigationBar"] == null
-            ? null
-            : XSdui.fromJson(context, json: json["bottomNavigationBar"]),
-        floatingActionButton: json["floatingActionButton"] == null
-            ? null
-            : XSdui.fromJson(context, json: json["floatingActionButton"]),
-      );
+  }) {
+    return Scaffold(
+      appBar: json["appBar"] == null
+          ? null
+          : XSduiAppbar.fromJson(context, json: json["appBar"]),
+      backgroundColor: json["backgroundColor"] == null
+          ? null
+          : HexColor.fromHex(json["backgroundColor"]),
+      drawer: json["drawer"] == null
+          ? null
+          : XSdui.fromJson(context, json: json["drawer"]),
+      drawerDragStartBehavior:
+          XSduiDragStartBehavior.fromString(json["drawerDragStartBehavior"]),
+      bottomSheet: json["bottomSheet"] == null
+          ? null
+          : XSdui.fromJson(context, json: json["bottomSheet"]),
+      extendBody: json["extendBody"] ?? false,
+      restorationId: json["restorationId"],
+      drawerEdgeDragWidth: json["drawerEdgeDragWidth"],
+      drawerEnableOpenDragGesture: json["drawerEnableOpenDragGesture"] ?? true,
+      drawerScrimColor: json["drawerScrimColor"] == null
+          ? null
+          : HexColor.fromHex(json["drawerScrimColor"]),
+      endDrawer: json["endDrawer"] == null
+          ? null
+          : XSdui.fromJson(context, json: json["endDrawer"]),
+      primary: json["primary"] ?? true,
+      persistentFooterButtons: json["persistentFooterButtons"] == null
+          ? null
+          : List.generate(
+              json["persistentFooterButtons"].length,
+              (index) => XSdui.fromJson(context,
+                  json: json["persistentFooterButtons"][index])),
+      extendBodyBehindAppBar: json["extendBodyBehindAppBar"] ?? false,
+      floatingActionButtonLocation: json["floatingActionButtonLocation"] == null
+          ? null
+          : XSduiScaffoldFloatingActionButtonLocation.fromString(
+              json["floatingActionButtonLocation"]),
+      resizeToAvoidBottomInset: json["resizeToAvoidBottomInset"],
+      body: json["body"] == null
+          ? null
+          : XSdui.fromJson(context, json: json["body"]),
+      bottomNavigationBar: json["bottomNavigationBar"] == null
+          ? null
+          : XSdui.fromJson(context, json: json["bottomNavigationBar"]),
+      floatingActionButton: json["floatingActionButton"] == null
+          ? null
+          : XSdui.fromJson(context, json: json["floatingActionButton"]),
+    );
+  }
+
+  static Map<String, dynamic>? toJson({
+    required Scaffold widget,
+  }) {
+    return {
+      "type": "Scaffold",
+      "backgroundColor": widget.backgroundColor == null
+          ? null
+          : HexColor.toHex(widget.backgroundColor!),
+      "appBar": XSdui.toJson(widget: widget.appBar),
+      "drawer": XSdui.toJson(widget: widget.drawer),
+      "body": XSdui.toJson(widget: widget.body),
+      "bottomNavigationBar": XSdui.toJson(widget: widget.bottomNavigationBar),
+      "floatingActionButton": XSdui.toJson(widget: widget.floatingActionButton),
+      "floatingActionButtonLocation":
+          XSduiScaffoldFloatingActionButtonLocation.tooString(
+              widget.floatingActionButtonLocation),
+    };
+  }
 }

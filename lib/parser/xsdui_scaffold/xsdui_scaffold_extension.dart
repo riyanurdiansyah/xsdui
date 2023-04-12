@@ -44,4 +44,47 @@ extension XSduiScaffoldFloatingActionButtonLocation
         return FloatingActionButtonLocation.endFloat;
     }
   }
+
+  static String? tooString(FloatingActionButtonLocation? location) {
+    switch (location) {
+      case FloatingActionButtonLocation.centerDocked:
+        return "centerDocked";
+      case FloatingActionButtonLocation.centerFloat:
+        return "centerFloat";
+      case FloatingActionButtonLocation.centerTop:
+        return "centerTop";
+      case FloatingActionButtonLocation.endDocked:
+        return "endDocked";
+      case FloatingActionButtonLocation.endFloat:
+        return "endFloat";
+      case FloatingActionButtonLocation.endTop:
+        return "endTop";
+      case FloatingActionButtonLocation.miniCenterDocked:
+        return "miniCenterDocked";
+      case FloatingActionButtonLocation.miniCenterFloat:
+        return "miniCenterFloat";
+      case FloatingActionButtonLocation.miniCenterTop:
+        return "miniCenterTop";
+      case FloatingActionButtonLocation.miniEndDocked:
+        return "miniEndDocked";
+      case FloatingActionButtonLocation.miniEndFloat:
+        return "miniEndFloat";
+      case FloatingActionButtonLocation.miniEndTop:
+        return "miniEndTop";
+      case FloatingActionButtonLocation.miniStartDocked:
+        return "miniStartDocked";
+      case FloatingActionButtonLocation.miniStartFloat:
+        return "miniStartFloat";
+      case FloatingActionButtonLocation.miniStartTop:
+        return "miniStartTop";
+      case FloatingActionButtonLocation.startDocked:
+        return "startDocked";
+      case FloatingActionButtonLocation.startFloat:
+        return "startFloat";
+      case FloatingActionButtonLocation.startTop:
+        return "startTop";
+      default:
+        return null;
+    }
+  }
 }
