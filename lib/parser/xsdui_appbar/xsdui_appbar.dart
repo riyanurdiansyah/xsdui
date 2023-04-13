@@ -26,21 +26,19 @@ class XSduiAppbar {
     );
   }
 
-  static Map<String, dynamic>? toJson({
-    required AppBar widget,
-  }) {
+  static Map<String, dynamic>? toJson(AppBar widget) {
     return {
       "centerTitle": widget.centerTitle,
       "automaticallyImplyLeading": widget.automaticallyImplyLeading,
-      "title": XSdui.toJson(widget: widget.title),
+      "title": XSdui.toJson(widget.title),
       "backgroundColor": widget.backgroundColor == null
           ? null
           : HexColor.toHex(widget.backgroundColor!),
       "elevation": widget.elevation,
       "titleSpacing": widget.titleSpacing,
       "actions": List.generate(widget.actions?.length ?? 0,
-          (index) => XSdui.toJson(widget: widget.actions![index])),
-      "leading": XSdui.toJson(widget: widget.leading),
+          (index) => XSdui.toJson(widget.actions![index])),
+      "leading": XSdui.toJson(widget.leading),
     };
   }
 }
