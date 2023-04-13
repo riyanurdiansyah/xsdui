@@ -29,9 +29,7 @@ class XSduiColumn {
     );
   }
 
-  static Map<String, dynamic>? toJson({
-    required Column widget,
-  }) {
+  static Map<String, dynamic>? toJson(Column widget) {
     return {
       "crossAxisAlignment":
           XSduiCrossAxisAlignment.convertToString(widget.crossAxisAlignment),
@@ -41,7 +39,7 @@ class XSduiColumn {
       "mainAxisAlignment":
           XSduiMainAxisAlignment.convertToString(widget.mainAxisAlignment),
       "children": List.generate(widget.children.length,
-          (index) => XSdui.toJson(widget: widget.children[index])),
+          (index) => XSdui.toJson(widget.children[index])),
     };
   }
 }
