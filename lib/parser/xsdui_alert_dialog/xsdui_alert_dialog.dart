@@ -56,15 +56,13 @@ class XSduiAlertDialog {
     );
   }
 
-  static Map<String, dynamic>? toJson({
-    required AlertDialog widget,
-  }) {
+  static Map<String, dynamic>? toJson(AlertDialog widget) {
     return {
       "actions": List.generate(
         widget.actions?.length ?? 0,
-        (index) => XSdui.toJson(widget: widget.actions![index]),
+        (index) => XSdui.toJson(widget.actions![index]),
       ),
-      "title": XSdui.toJson(widget: widget.title),
+      "title": XSdui.toJson(widget.title),
       "backgroundColor": widget.backgroundColor == null
           ? null
           : HexColor.toHex(widget.backgroundColor!),
@@ -73,7 +71,7 @@ class XSduiAlertDialog {
       "actionsAlignment":
           XSduiMainAxisAlignment.convertToString(widget.actionsAlignment),
       "titleTextStyle": widget.titleTextStyle?.toString(),
-      "content": XSdui.toJson(widget: widget.content),
+      "content": XSdui.toJson(widget.content),
       "clipBehavior": XSduiClipBehavior.convertToString(widget.clipBehavior),
     };
   }
