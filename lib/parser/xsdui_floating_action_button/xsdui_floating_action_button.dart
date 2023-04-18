@@ -55,6 +55,7 @@ class XSduiFloatingActionButton {
 
   static Map<String, dynamic>? toJson(FloatingActionButton widget) {
     return {
+      "type": "FloatingActionButton",
       "backgroundColor": widget.backgroundColor == null
           ? null
           : HexColor.toHex(widget.backgroundColor!),
