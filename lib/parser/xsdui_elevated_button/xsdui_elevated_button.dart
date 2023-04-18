@@ -36,6 +36,7 @@ class XSduiElevatedButton {
 
   static Map<String, dynamic>? toJson(ElevatedButton widget) {
     return {
+      "type": "ElevatedButton",
       "style": {
         "backgroundColor": widget.style?.backgroundColor == null
             ? null
