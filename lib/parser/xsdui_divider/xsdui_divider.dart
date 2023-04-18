@@ -17,6 +17,7 @@ class XSduiDivider {
 
   static Map<String, dynamic>? toJson(Divider widget) {
     return {
+      "type": "Divider",
       "color": widget.color == null ? null : HexColor.toHex(widget.color!),
       "endIndent": widget.endIndent,
       "height": widget.height,
