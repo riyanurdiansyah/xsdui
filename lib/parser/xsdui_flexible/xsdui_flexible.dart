@@ -17,6 +17,7 @@ class XSduiFlexible {
 
   static Map<String, dynamic>? toJson(Flexible widget) {
     return {
+      "type": "Flexible",
       "flex": widget.flex,
       "child": XSdui.toJson(widget.child),
     };
