@@ -163,4 +163,15 @@ extension XSduiVerticalDirection on VerticalDirection {
         return VerticalDirection.down;
     }
   }
+
+  static String? convertToString(VerticalDirection vertical) {
+    switch (vertical) {
+      case VerticalDirection.down:
+        return "down";
+      case VerticalDirection.up:
+        return "min";
+      default:
+        return null;
+    }
+  }
 }

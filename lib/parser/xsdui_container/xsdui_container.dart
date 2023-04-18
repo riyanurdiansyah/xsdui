@@ -37,11 +37,34 @@ class XSduiContainer {
   static Map<String, dynamic>? toJson(Container widget) {
     return {
       "type": "Container",
+      "width": widget.constraints!.maxWidth.runtimeType == double
+          ? widget.constraints!.maxWidth
+          : null,
+      "height": widget.constraints!.maxHeight.runtimeType == double
+          ? widget.constraints!.maxHeight
+          : null,
       "color": widget.color == null ? null : HexColor.toHex(widget.color!),
-      "child": XSdui.toJson(widget.child),
       "alignment": widget.alignment.toString() == "null"
           ? null
           : widget.alignment.toString().replaceAll("Alignment.", ""),
+      "margin": widget.margin == null
+          ? null
+          : {
+              "marginType": "ltrb",
+              "left": (widget.margin as EdgeInsets).left,
+              "top": (widget.margin as EdgeInsets).top,
+              "right": (widget.margin as EdgeInsets).right,
+              "bottom": (widget.margin as EdgeInsets).bottom,
+            },
+      "padding": widget.padding == null
+          ? null
+          : {
+              "paddingType": "ltrb",
+              "left": (widget.padding as EdgeInsets).left,
+              "top": (widget.padding as EdgeInsets).top,
+              "right": (widget.padding as EdgeInsets).right,
+              "bottom": (widget.padding as EdgeInsets).bottom,
+            },
       "borderRadius": {
         "borderRadiusType": "ltrb",
         "bottomLeft":
@@ -61,6 +84,7 @@ class XSduiContainer {
                 .topRight
                 .x,
       },
+      "child": XSdui.toJson(widget.child),
     };
   }
 }
