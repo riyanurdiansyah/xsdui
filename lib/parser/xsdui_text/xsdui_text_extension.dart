@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 extension XSduiFontWeight on FontWeight {
   static FontWeight fromString(String weight) {
     switch (weight) {
+      case "bold":
+        return FontWeight.bold;
       case "w100":
         return FontWeight.w100;
 
@@ -64,6 +66,22 @@ extension XSduiTextOverflow on TextOverflow {
         return TextOverflow.ellipsis;
     }
   }
+
+  static String? convertToString(TextOverflow? overflow) {
+    switch (overflow) {
+      case TextOverflow.clip:
+        return "clip";
+
+      case TextOverflow.visible:
+        return "visible";
+
+      case TextOverflow.fade:
+        return "fade";
+
+      default:
+        return null;
+    }
+  }
 }
 
 extension XSduiTextAlign on TextAlign {
@@ -89,6 +107,28 @@ extension XSduiTextAlign on TextAlign {
 
       default:
         return TextAlign.start;
+    }
+  }
+
+  static String? convertToString(TextAlign? overflow) {
+    switch (overflow) {
+      case TextAlign.center:
+        return "center";
+
+      case TextAlign.start:
+        return "start";
+
+      case TextAlign.justify:
+        return "justify";
+
+      case TextAlign.left:
+        return "left";
+
+      case TextAlign.right:
+        return "right";
+
+      default:
+        return null;
     }
   }
 }
