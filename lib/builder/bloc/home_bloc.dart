@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xsdui/builder/models/scaffold/xsdui_scaffold_model.dart';
 import 'package:xsdui/utils/xsdui_constanta.dart';
@@ -12,7 +11,7 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
     on<HomeEvent>((event, emit) {
-      Map<String, dynamic> data = {"type": "scaffold"};
+      Map<String, dynamic> data = {"type": "Scaffold"};
 
       emit(state.copyWith(jsonUi: data));
     });
@@ -38,36 +37,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> _onDragWidget(HomeOnDragEvent event, Emitter<HomeState> emit) {
     var tempWidget = state.jsonUi;
-    Map<String, dynamic> newJson = {
+    tempWidget[event.type] = {
       "title": {
         "type": "text",
-        "title": "Okey",
+        "title": "OK",
       }
     };
-    tempWidget['appBar'] = newJson;
-    tempWidget['body'] = {
-      "type": "column",
-      "children": [
-        {
-          "type": "textformfield",
-          "hintText": "John Doe",
-          "keyboardType": "number",
-          "label": {
-            "type": "text",
-            "title": "Jancok",
-          },
-          "obscureText": true,
-          "border": {
-            "borderType": "outline",
-            "borderRadius": {
-              "borderRadiusType": "circular",
-              "radius": 14.0,
-            },
-          }
-        }
-      ]
-    };
-    debugPrint("CEK : $tempWidget");
     emit(state.copyWith(jsonUi: tempWidget));
   }
 }

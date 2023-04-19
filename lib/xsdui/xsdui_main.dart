@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xsdui/parser/xsdui_alert_dialog/xsdui_alert_dialog.dart';
+import 'package:xsdui/parser/xsdui_appbar/xsdui_appbar.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider_vertical.dart';
 import 'package:xsdui/parser/xsdui_elevated_button/xsdui_elevated_button.dart';
@@ -26,6 +27,9 @@ class XSdui {
     switch (type) {
       case "":
         return const SizedBox();
+
+      case XSduiWidgetName.appbar:
+        return XSduiAppbar.fromJson(context, json: json);
 
       case XSduiWidgetName.column:
         return XSduiColumn.fromJson(context, json: json);
@@ -73,7 +77,7 @@ class XSdui {
         return XSduiDivider.fromJson(context, json: json);
 
       case XSduiWidgetName.verticalDivider:
-        return XSduiDividerVertical.fromJson(context, json: json);
+        return XSduiVerticalDivider.fromJson(context, json: json);
 
       case XSduiWidgetName.spacer:
         return XSduiSpacer.fromJson(context, json: json);
@@ -87,5 +91,78 @@ class XSdui {
       default:
         return const SizedBox();
     }
+  }
+
+  static Map<String, dynamic>? toJson(Widget? widget) {
+    if (widget is Column) {
+      return XSduiColumn.toJson(widget);
+    }
+
+    if (widget is Container) {
+      return XSduiContainer.toJson(widget);
+    }
+
+    if (widget is ElevatedButton) {
+      return XSduiElevatedButton.toJson(widget);
+    }
+
+    if (widget is GestureDetector) {
+      return XSduiGestureDetector.toJson(widget);
+    }
+
+    if (widget is Image) {
+      return XSduiImage.toJson(widget);
+    }
+
+    if (widget is InkWell) {
+      return XSduiInkwell.toJson(widget);
+    }
+
+    if (widget is ListView) {
+      return XSduiListView.toJson(widget);
+    }
+
+    if (widget is Row) {
+      return XSduiRow.toJson(widget);
+    }
+
+    if (widget is Scaffold) {
+      return XSduiScaffold.toJson(widget);
+    }
+    if (widget is Text) {
+      return XSduiText.toJson(widget);
+    }
+    if (widget is SingleChildScrollView) {
+      return XSduiSingleChildScrollView.toJson(widget);
+    }
+
+    if (widget is Padding) {
+      return XSduiPadding.toJson(widget);
+    }
+
+    if (widget is Divider) {
+      return XSduiDivider.toJson(widget);
+    }
+
+    if (widget is VerticalDivider) {
+      return XSduiVerticalDivider.toJson(widget);
+    }
+
+    if (widget is Spacer) {
+      return XSduiSpacer.toJson(widget);
+    }
+
+    if (widget is AlertDialog) {
+      return XSduiAlertDialog.toJson(widget);
+    }
+
+    if (widget is TextFormField) {
+      return XSduiTextFormField.toJson(widget);
+    }
+
+    if (widget is SizedBox) {
+      return XSduiSizedBox.toJson(widget);
+    }
+    return null;
   }
 }
