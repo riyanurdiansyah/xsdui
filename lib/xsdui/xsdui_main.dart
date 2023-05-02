@@ -4,6 +4,7 @@ import 'package:xsdui/parser/xsdui_appbar/xsdui_appbar.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider_vertical.dart';
 import 'package:xsdui/parser/xsdui_elevated_button/xsdui_elevated_button.dart';
+import 'package:xsdui/parser/xsdui_form/xsdui_form.dart';
 import 'package:xsdui/parser/xsdui_gesture_detector/xsdui_gesture_detector.dart';
 import 'package:xsdui/parser/xsdui_image/xsdui_image.dart';
 import 'package:xsdui/parser/xsdui_inkwell/xsdui_inkwell.dart';
@@ -19,10 +20,29 @@ import 'package:xsdui/xsdui.dart';
 import 'package:xsdui/xsdui/xsdui_asset.dart';
 
 class XSdui {
-  static Map<String, Function>? _functionMap;
+  static Map<String, Function>? _functionMaps;
 
-  static void setFunctionMap(Map<String, Function> functionMap) {
-    _functionMap = functionMap;
+  static Map<String, TextEditingController>? _textControllerMaps;
+
+  static Map<String, GlobalKey<FormState>>? _keyMaps;
+
+  static Map<String, String? Function(String?)?>? _validators;
+
+  static void setTextControllerMap(
+      Map<String, TextEditingController> controllers) {
+    _textControllerMaps = controllers;
+  }
+
+  static void setFunctionMap(Map<String, Function> functionMaps) {
+    _functionMaps = functionMaps;
+  }
+
+  static void setKeyMap(Map<String, GlobalKey<FormState>> keys) {
+    _keyMaps = keys;
+  }
+
+  static void setValidator(Map<String, String? Function(String?)?> validators) {
+    _validators = validators;
   }
 
   static Widget fromAsset(BuildContext context, {required String path}) {
@@ -82,6 +102,9 @@ class XSdui {
       case "":
         return const SizedBox();
 
+      case XSduiWidgetName.sizedBox:
+        return XSduiSizedBox.fromJson(context, json: json);
+
       case XSduiWidgetName.appbar:
         return XSduiAppbar.fromJson(context, json: json);
 
@@ -93,10 +116,11 @@ class XSdui {
 
       case XSduiWidgetName.elevatedButton:
         return XSduiElevatedButton.fromJson(context,
-            json: json, functionMap: _functionMap ?? {'dummy': () {}});
+            json: json, functionMap: _functionMaps ?? {'dummy': () {}});
 
       case XSduiWidgetName.gestureDetector:
-        return XSduiGestureDetector.fromJson(context, json: json);
+        return XSduiGestureDetector.fromJson(context,
+            json: json, functionMap: _functionMaps ?? {'dummy': () {}});
 
       case XSduiWidgetName.image:
         return XSduiImage.fromJson(context, json: json);
@@ -141,7 +165,13 @@ class XSdui {
         return XSduiAlertDialog.fromJson(context, json: json);
 
       case XSduiWidgetName.textFormField:
-        return XSduiTextFormField.fromJson(context, json: json);
+        return XSduiTextFormField.fromJson(context,
+            json: json,
+            controllers: _textControllerMaps!,
+            validators: _validators!);
+
+      case XSduiWidgetName.form:
+        return XsduiForm.fromJson(context, json: json, keyMaps: _keyMaps!);
 
       default:
         return const SizedBox();
