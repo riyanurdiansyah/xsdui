@@ -14,6 +14,17 @@ extension XSduiAxis on Axis {
         return Axis.vertical;
     }
   }
+
+  static String? convertToString(Axis? axis) {
+    switch (axis) {
+      case Axis.vertical:
+        return "vertical";
+      case Axis.horizontal:
+        return "horizontal";
+      default:
+        return null;
+    }
+  }
 }
 
 extension XSduiScrollPhysics on ScrollPhysics {
@@ -33,6 +44,23 @@ extension XSduiScrollPhysics on ScrollPhysics {
         return const ScrollPhysics();
     }
   }
+
+  static String? convertToString(ScrollPhysics? scroll) {
+    switch (scroll) {
+      case ClampingScrollPhysics():
+        return "clamping";
+      case BouncingScrollPhysics():
+        return "bouncing";
+      case FixedExtentScrollPhysics():
+        return "fixed";
+      case NeverScrollableScrollPhysics():
+        return "never";
+      case PageScrollPhysics():
+        return "page";
+      default:
+        return null;
+    }
+  }
 }
 
 extension XSduiDragStartBehavior on DragStartBehavior {
@@ -44,6 +72,17 @@ extension XSduiDragStartBehavior on DragStartBehavior {
         return DragStartBehavior.start;
       default:
         return DragStartBehavior.start;
+    }
+  }
+
+  static String? convertToString(DragStartBehavior? drag) {
+    switch (drag) {
+      case DragStartBehavior.down:
+        return "down";
+      case DragStartBehavior.start:
+        return "start";
+      default:
+        return null;
     }
   }
 }

@@ -13,7 +13,7 @@ abstract class XSduiWidgetName {
 
   static const image = "image";
 
-  static const appbar = "appbar";
+  static const appbar = "appBar";
 
   static const bottomnavigationbar = "bottomnavigationbar";
 

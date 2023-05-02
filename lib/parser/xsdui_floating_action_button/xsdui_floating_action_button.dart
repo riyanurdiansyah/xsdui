@@ -53,40 +53,41 @@ class XSduiFloatingActionButton {
     );
   }
 
-  // static Map<String, dynamic>? toJson(FloatingActionButton widget) {
-  //   return {
-  //     "backgroundColor": widget.backgroundColor == null
-  //         ? null
-  //         : HexColor.toHex(widget.backgroundColor!),
-  //     "autofocus": widget.autofocus,
-  //     "disabledElevation": widget.disabledElevation,
-  //     "elevation": widget.elevation,
-  //     "enableFeedback": widget.enableFeedback,
-  //     "focusColor":
-  //         widget.focusColor == null ? null : HexColor.toHex(widget.focusColor!),
-  //     "focusElevation": widget.focusElevation,
-  //     "focusNode": {
-  //       "canRequestFocus": widget.focusNode!.canRequestFocus,
-  //       "debugLabel": widget.focusNode!.debugLabel,
-  //       "descendantsAreFocusable": widget.focusNode!.descendantsAreFocusable,
-  //       "descendantsAreTraversable":
-  //           widget.focusNode!.descendantsAreTraversable,
-  //       "skipTraversal": widget.focusNode!.skipTraversal,
-  //     },
-  //     "foregroundColor": widget.foregroundColor == null
-  //         ? null
-  //         : HexColor.toHex(widget.foregroundColor!),
-  //     "highlightElevation": widget.highlightElevation,
-  //     "hoverColor":
-  //         widget.hoverColor == null ? null : HexColor.toHex(widget.hoverColor!),
-  //     "isExtended": widget.isExtended,
-  //     "hoverElevation": widget.hoverElevation,
-  //     "mini": widget.mini,
-  //     "tooltip": widget.tooltip,
-  //     "splashColor": widget.splashColor == null
-  //         ? null
-  //         : HexColor.toHex(widget.splashColor!),
-  //     "child": XSdui.toJson(widget.child),
-  //   };
-  // }
+  static Map<String, dynamic>? toJson(FloatingActionButton widget) {
+    return {
+      "type": "FloatingActionButton",
+      "backgroundColor": widget.backgroundColor == null
+          ? null
+          : HexColor.toHex(widget.backgroundColor!),
+      "autofocus": widget.autofocus,
+      "disabledElevation": widget.disabledElevation,
+      "elevation": widget.elevation,
+      "enableFeedback": widget.enableFeedback,
+      "focusColor":
+          widget.focusColor == null ? null : HexColor.toHex(widget.focusColor!),
+      "focusElevation": widget.focusElevation,
+      "focusNode": {
+        "canRequestFocus": widget.focusNode!.canRequestFocus,
+        "debugLabel": widget.focusNode!.debugLabel,
+        "descendantsAreFocusable": widget.focusNode!.descendantsAreFocusable,
+        "descendantsAreTraversable":
+            widget.focusNode!.descendantsAreTraversable,
+        "skipTraversal": widget.focusNode!.skipTraversal,
+      },
+      "foregroundColor": widget.foregroundColor == null
+          ? null
+          : HexColor.toHex(widget.foregroundColor!),
+      "highlightElevation": widget.highlightElevation,
+      "hoverColor":
+          widget.hoverColor == null ? null : HexColor.toHex(widget.hoverColor!),
+      "isExtended": widget.isExtended,
+      "hoverElevation": widget.hoverElevation,
+      "mini": widget.mini,
+      "tooltip": widget.tooltip,
+      "splashColor": widget.splashColor == null
+          ? null
+          : HexColor.toHex(widget.splashColor!),
+      "child": XSdui.toJson(widget.child),
+    };
+  }
 }

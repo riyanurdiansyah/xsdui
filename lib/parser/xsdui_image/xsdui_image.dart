@@ -61,4 +61,36 @@ class XSduiImage {
       },
     );
   }
+
+  static Map<String, dynamic>? toJson(Image widget) {
+    if (widget.image is NetworkImage) {
+      return {
+        "type": "image",
+        "imageType": "network",
+        "link": (widget.image as NetworkImage).url,
+        "fit": widget.fit == null
+            ? null
+            : widget.fit!.toString().replaceAll("BoxFit.", ""),
+      };
+    }
+
+    if (widget.image is AssetImage) {
+      return {
+        "type": "image",
+        "imageType": "network",
+        "link": (widget.image as FileImage).file.path,
+        "fit": widget.fit == null
+            ? null
+            : widget.fit!.toString().replaceAll("BoxFit.", ""),
+      };
+    }
+    return {
+      "type": "image",
+      "imageType": "network",
+      "link": (widget.image as AssetImage).assetName,
+      "fit": widget.fit == null
+          ? null
+          : widget.fit!.toString().replaceAll("BoxFit.", ""),
+    };
+  }
 }

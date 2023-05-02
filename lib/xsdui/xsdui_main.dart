@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xsdui/parser/xsdui_alert_dialog/xsdui_alert_dialog.dart';
+import 'package:xsdui/parser/xsdui_appbar/xsdui_appbar.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider_vertical.dart';
 import 'package:xsdui/parser/xsdui_gesture_detector/xsdui_gesture_detector.dart';
@@ -14,6 +15,7 @@ import 'package:xsdui/parser/xsdui_spacer/xsdui_spacer.dart';
 import 'package:xsdui/parser/xsdui_text_form_field/xsdui_text_form_field.dart';
 import 'package:xsdui/utils/xsdui_widget_name.dart';
 import 'package:xsdui/xsdui.dart';
+import 'package:xsdui/xsdui/xsdui_asset.dart';
 
 typedef ErrorWidgetBuilder = Widget Function(
   BuildContext context,
@@ -23,6 +25,59 @@ typedef ErrorWidgetBuilder = Widget Function(
 typedef LoadingWidgetBuilder = Widget Function(BuildContext context);
 
 class XSdui {
+  static Map<String, Function>? _functionMap;
+
+  static void setFunctionMap(Map<String, Function> functionMap) {
+    _functionMap = functionMap;
+  }
+
+  static Widget fromAsset(BuildContext context, {required String path}) {
+    return FutureBuilder<Map<String, dynamic>>(
+      future: XSduiAsset.load(path: path),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return XSdui.fromJson(context, json: snapshot.data!);
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text(snapshot.error.toString()),
+          );
+        }
+        return const CircularProgressIndicator();
+      },
+    );
+  }
+
+  static Widget fromNetwork(
+    BuildContext context, {
+    required String url,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? queryParameters,
+  }) {
+    return FutureBuilder<Map<String, dynamic>>(
+      future: XSduiNetwork.getRequest(url: url),
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.waiting:
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          case ConnectionState.done:
+            if (snapshot.hasData) {
+              return XSdui.fromJson(json: snapshot.data ?? {}, context);
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text(snapshot.error.toString()),
+              );
+            } else {
+              return const SizedBox();
+            }
+          default:
+            return const SizedBox();
+        }
+      },
+    );
+  }
+
   static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
@@ -33,6 +88,9 @@ class XSdui {
     switch (type) {
       case "":
         return const SizedBox();
+
+      case XSduiWidgetName.appbar:
+        return XSduiAppbar.fromJson(context, json: json);
 
       case XSduiWidgetName.column:
         return XSduiColumn.fromJson(context, json: json);
@@ -51,7 +109,7 @@ class XSdui {
 
       case XSduiWidgetName.elevatedButton:
         return XSduiElevatedButton.fromJson(context,
-            json: json, functionMap: functionMap ?? {'tod': () {}});
+            json: json, functionMap: _functionMap!);
 
       case XSduiWidgetName.listView:
         return XSduiListView.fromJson(context, json: json);
@@ -81,7 +139,7 @@ class XSdui {
         return XSduiDivider.fromJson(context, json: json);
 
       case XSduiWidgetName.verticalDivider:
-        return XSduiDividerVertical.fromJson(context, json: json);
+        return XSduiVerticalDivider.fromJson(context, json: json);
 
       case XSduiWidgetName.spacer:
         return XSduiSpacer.fromJson(context, json: json);
@@ -97,53 +155,76 @@ class XSdui {
     }
   }
 
-  // static Widget fromNetwork(
-  //   XsduiRequest request, {
-  //   LoadingWidgetBuilder? loadingWidget,
-  //   ErrorWidgetBuilder? errorWidget,
-  // }) {
-  //   return FutureBuilder<Response?>(
-  //     future: XsduiNetwork.request(request),
-  //     builder: (context, snapshot) {
-  //       switch (snapshot.connectionState) {
-  //         case ConnectionState.waiting:
-  //           Widget? widget;
-  //           if (loadingWidget != null) {
-  //             widget = loadingWidget(context);
-  //             return widget;
-  //           }
-  //           break;
-  //         case ConnectionState.done:
-  //           if (snapshot.hasData) {
-  //             final json = jsonDecode(snapshot.data.toString());
-  //             return XSdui.fromJson(json: json, context);
-  //           } else if (snapshot.hasError) {
-  //             log(snapshot.error.toString());
-  //             if (errorWidget != null) {
-  //               final widget = errorWidget(context, snapshot.error);
-  //               return widget;
-  //             }
-  //           }
-  //           break;
-  //         default:
-  //           break;
-  //       }
-  //       return Container(color: Colors.white);
-  //     },
-  //   );
-  // }
+  static Map<String, dynamic>? toJson(Widget? widget) {
+    if (widget is Column) {
+      return XSduiColumn.toJson(widget);
+    }
 
-  // static Future<Widget?> fromAssets(
-  //   String assetPath,
-  //   BuildContext context,
-  // ) async {
-  //   final String data = await rootBundle.loadString(assetPath);
-  //   final Map<String, dynamic> jsonData = jsonDecode(data);
+    if (widget is Container) {
+      return XSduiContainer.toJson(widget);
+    }
 
-  //   if (context.mounted) {
-  //     return fromJson(jsonData, context);
-  //   }
+    if (widget is ElevatedButton) {
+      return XSduiElevatedButton.toJson(widget);
+    }
 
-  //   return null;
-  // }
+    if (widget is GestureDetector) {
+      return XSduiGestureDetector.toJson(widget);
+    }
+
+    if (widget is Image) {
+      return XSduiImage.toJson(widget);
+    }
+
+    if (widget is InkWell) {
+      return XSduiInkwell.toJson(widget);
+    }
+
+    if (widget is ListView) {
+      return XSduiListView.toJson(widget);
+    }
+
+    if (widget is Row) {
+      return XSduiRow.toJson(widget);
+    }
+
+    if (widget is Scaffold) {
+      return XSduiScaffold.toJson(widget);
+    }
+    if (widget is Text) {
+      return XSduiText.toJson(widget);
+    }
+    if (widget is SingleChildScrollView) {
+      return XSduiSingleChildScrollView.toJson(widget);
+    }
+
+    if (widget is Padding) {
+      return XSduiPadding.toJson(widget);
+    }
+
+    if (widget is Divider) {
+      return XSduiDivider.toJson(widget);
+    }
+
+    if (widget is VerticalDivider) {
+      return XSduiVerticalDivider.toJson(widget);
+    }
+
+    if (widget is Spacer) {
+      return XSduiSpacer.toJson(widget);
+    }
+
+    if (widget is AlertDialog) {
+      return XSduiAlertDialog.toJson(widget);
+    }
+
+    if (widget is TextFormField) {
+      return XSduiTextFormField.toJson(widget);
+    }
+
+    if (widget is SizedBox) {
+      return XSduiSizedBox.toJson(widget);
+    }
+    return null;
+  }
 }

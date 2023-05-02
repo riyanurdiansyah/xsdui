@@ -128,15 +128,14 @@ class XSduiHomePage extends StatefulWidget {
 }
 
 class _XSduiHomePageState extends State<XSduiHomePage> {
-  final bool _expanded = false;
+  bool _expanded = false;
   bool isLoading = true;
   Map<String, Function> functionMap = {};
 
   void addFunction(Map<String, Function> newFunction) {
     isLoading = true;
-
-    print(newFunction);
     functionMap.addEntries(newFunction.entries);
+    XSdui.setFunctionMap(functionMap);
 
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
@@ -149,12 +148,11 @@ class _XSduiHomePageState extends State<XSduiHomePage> {
   void initState() {
     super.initState();
     addFunction({'toggle': toggle});
-    print('we $functionMap');
   }
 
   void toggle() {
     setState(() {
-      !_expanded;
+      _expanded = !_expanded;
     });
   }
 
@@ -344,9 +342,7 @@ class _XSduiHomePageState extends State<XSduiHomePage> {
     return isLoading == true
         ? const Scaffold(body: Center(child: CircularProgressIndicator()))
         : _expanded == true && isLoading == false
-            ? XSdui.fromJson(context,
-                json: readOnlyFalse, functionMap: functionMap)
-            : XSdui.fromJson(context,
-                json: readOnlyTrue, functionMap: functionMap);
+            ? XSdui.fromJson(context, json: readOnlyFalse)
+            : XSdui.fromJson(context, json: readOnlyTrue);
   }
 }

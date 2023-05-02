@@ -29,6 +29,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+
+  # xsdui:
+  #   git:
+  #     url: https://github.com/riyanurdiansyah/xsdui.git
+  #     ref: dev
+
+
   flutter:
     sdk: flutter
   xsdui:

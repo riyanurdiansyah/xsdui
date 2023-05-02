@@ -55,38 +55,39 @@ class XSduiElevatedButton {
     );
   }
 
-  // static Map<String, dynamic>? toJson(ElevatedButton widget) {
-  //   return {
-  //     "style": {
-  //       "backgroundColor": widget.style?.backgroundColor == null
-  //           ? null
-  //           : HexColor.toHex(
-  //               (widget.style!.backgroundColor as MaterialStatePropertyAll)
-  //                   .value),
-  //       "elevation": widget.style!.elevation == null
-  //           ? null
-  //           : (widget.style!.elevation as MaterialStatePropertyAll).value,
-  //       "padding": {
-  //         "paddingType": "ltrb",
-  //         "left": ((widget.style!.padding
-  //                     as MaterialStatePropertyAll<EdgeInsetsGeometry?>)
-  //                 .value as EdgeInsets)
-  //             .left,
-  //         "top": ((widget.style!.padding
-  //                     as MaterialStatePropertyAll<EdgeInsetsGeometry?>)
-  //                 .value as EdgeInsets)
-  //             .top,
-  //         "right": ((widget.style!.padding
-  //                     as MaterialStatePropertyAll<EdgeInsetsGeometry?>)
-  //                 .value as EdgeInsets)
-  //             .right,
-  //         "bottom": ((widget.style!.padding
-  //                     as MaterialStatePropertyAll<EdgeInsetsGeometry?>)
-  //                 .value as EdgeInsets)
-  //             .bottom,
-  //       }
-  //     },
-  //     "child": XSdui.toJson(widget.child),
-  //   };
-  // }
+  static Map<String, dynamic>? toJson(ElevatedButton widget) {
+    return {
+      "type": "ElevatedButton",
+      "style": {
+        "backgroundColor": widget.style?.backgroundColor == null
+            ? null
+            : HexColor.toHex(
+                (widget.style!.backgroundColor as MaterialStatePropertyAll)
+                    .value),
+        "elevation": widget.style!.elevation == null
+            ? null
+            : (widget.style!.elevation as MaterialStatePropertyAll).value,
+        "padding": {
+          "paddingType": "ltrb",
+          "left": ((widget.style!.padding
+                      as MaterialStatePropertyAll<EdgeInsetsGeometry?>)
+                  .value as EdgeInsets)
+              .left,
+          "top": ((widget.style!.padding
+                      as MaterialStatePropertyAll<EdgeInsetsGeometry?>)
+                  .value as EdgeInsets)
+              .top,
+          "right": ((widget.style!.padding
+                      as MaterialStatePropertyAll<EdgeInsetsGeometry?>)
+                  .value as EdgeInsets)
+              .right,
+          "bottom": ((widget.style!.padding
+                      as MaterialStatePropertyAll<EdgeInsetsGeometry?>)
+                  .value as EdgeInsets)
+              .bottom,
+        }
+      },
+      "child": XSdui.toJson(widget.child),
+    };
+  }
 }
