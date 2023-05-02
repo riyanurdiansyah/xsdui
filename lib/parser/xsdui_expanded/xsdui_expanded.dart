@@ -15,10 +15,10 @@ class XSduiExpanded {
     );
   }
 
-  static Map<String, dynamic>? toJson(Expanded widget) {
-    return {
-      "flex": widget.flex,
-      "child": XSdui.toJson(widget.child),
-    };
-  }
+  // static Map<String, dynamic>? toJson(Expanded widget) {
+  //   return {
+  //     "flex": widget.flex,
+  //     "child": XSdui.toJson(widget.child),
+  //   };
+  // }
 }

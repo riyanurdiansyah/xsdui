@@ -29,17 +29,17 @@ class XSduiColumn {
     );
   }
 
-  static Map<String, dynamic>? toJson(Column widget) {
-    return {
-      "crossAxisAlignment":
-          XSduiCrossAxisAlignment.convertToString(widget.crossAxisAlignment),
-      "mainAxisSize": XSduiMainAxisSize.converToString(widget.mainAxisSize),
-      "textBaseline": XSduiTextBaseline.convertToString(widget.textBaseline),
-      "textDirection": XSduiTextDirection.convertToString(widget.textDirection),
-      "mainAxisAlignment":
-          XSduiMainAxisAlignment.convertToString(widget.mainAxisAlignment),
-      "children": List.generate(widget.children.length,
-          (index) => XSdui.toJson(widget.children[index])),
-    };
-  }
+  // static Map<String, dynamic>? toJson(Column widget) {
+  //   return {
+  //     "crossAxisAlignment":
+  //         XSduiCrossAxisAlignment.convertToString(widget.crossAxisAlignment),
+  //     "mainAxisSize": XSduiMainAxisSize.converToString(widget.mainAxisSize),
+  //     "textBaseline": XSduiTextBaseline.convertToString(widget.textBaseline),
+  //     "textDirection": XSduiTextDirection.convertToString(widget.textDirection),
+  //     "mainAxisAlignment":
+  //         XSduiMainAxisAlignment.convertToString(widget.mainAxisAlignment),
+  //     "children": List.generate(widget.children.length,
+  //         (index) => XSdui.toJson(widget.children[index])),
+  //   };
+  // }
 }

@@ -34,33 +34,33 @@ class XSduiContainer {
     );
   }
 
-  static Map<String, dynamic>? toJson(Container widget) {
-    return {
-      "type": "Container",
-      "color": widget.color == null ? null : HexColor.toHex(widget.color!),
-      "child": XSdui.toJson(widget.child),
-      "alignment": widget.alignment.toString() == "null"
-          ? null
-          : widget.alignment.toString().replaceAll("Alignment.", ""),
-      "borderRadius": {
-        "borderRadiusType": "ltrb",
-        "bottomLeft":
-            ((widget.decoration as BoxDecoration).borderRadius as BorderRadius)
-                .bottomLeft
-                .x,
-        "bottomRight":
-            ((widget.decoration as BoxDecoration).borderRadius as BorderRadius)
-                .bottomRight
-                .x,
-        "topLeft":
-            ((widget.decoration as BoxDecoration).borderRadius as BorderRadius)
-                .topLeft
-                .x,
-        "topRight":
-            ((widget.decoration as BoxDecoration).borderRadius as BorderRadius)
-                .topRight
-                .x,
-      },
-    };
-  }
+  // static Map<String, dynamic>? toJson(Container widget) {
+  //   return {
+  //     "type": "Container",
+  //     "color": widget.color == null ? null : HexColor.toHex(widget.color!),
+  //     "child": XSdui.toJson(widget.child),
+  //     "alignment": widget.alignment.toString() == "null"
+  //         ? null
+  //         : widget.alignment.toString().replaceAll("Alignment.", ""),
+  //     "borderRadius": {
+  //       "borderRadiusType": "ltrb",
+  //       "bottomLeft":
+  //           ((widget.decoration as BoxDecoration).borderRadius as BorderRadius)
+  //               .bottomLeft
+  //               .x,
+  //       "bottomRight":
+  //           ((widget.decoration as BoxDecoration).borderRadius as BorderRadius)
+  //               .bottomRight
+  //               .x,
+  //       "topLeft":
+  //           ((widget.decoration as BoxDecoration).borderRadius as BorderRadius)
+  //               .topLeft
+  //               .x,
+  //       "topRight":
+  //           ((widget.decoration as BoxDecoration).borderRadius as BorderRadius)
+  //               .topRight
+  //               .x,
+  //     },
+  //   };
+  // }
 }

@@ -60,32 +60,32 @@ class XSduiScaffold {
     );
   }
 
-  static Map<String, dynamic>? toJson(Scaffold widget) {
-    return {
-      "type": "Scaffold",
-      "appBar": XSdui.toJson(widget.appBar),
-      "drawer": XSdui.toJson(widget.drawer),
-      "endDrawer": XSdui.toJson(widget.endDrawer),
-      "extendBody": widget.extendBody,
-      "bottomSheet": XSdui.toJson(widget.bottomSheet),
-      "resizeToAvoidBottomInset": widget.resizeToAvoidBottomInset,
-      "extendBodyBehindAppBar": widget.extendBodyBehindAppBar,
-      "backgroundColor": widget.backgroundColor == null
-          ? null
-          : HexColor.toHex(widget.backgroundColor!),
-      "drawerScrimColor": widget.backgroundColor == null
-          ? null
-          : HexColor.toHex(widget.drawerScrimColor!),
-      "primary": widget.primary,
-      "body": XSdui.toJson(widget.body),
-      "bottomNavigationBar": XSdui.toJson(widget.bottomNavigationBar),
-      "floatingActionButton": XSdui.toJson(widget.floatingActionButton),
-      "floatingActionButtonLocation":
-          widget.floatingActionButtonLocation.toString() == "null"
-              ? null
-              : widget.floatingActionButtonLocation
-                  .toString()
-                  .replaceAll("FloatingActionButtonLocation.", ""),
-    };
-  }
+  // static Map<String, dynamic>? toJson(Scaffold widget) {
+  //   return {
+  //     "type": "Scaffold",
+  //     "appBar": XSdui.toJson(widget.appBar),
+  //     "drawer": XSdui.toJson(widget.drawer),
+  //     "endDrawer": XSdui.toJson(widget.endDrawer),
+  //     "extendBody": widget.extendBody,
+  //     "bottomSheet": XSdui.toJson(widget.bottomSheet),
+  //     "resizeToAvoidBottomInset": widget.resizeToAvoidBottomInset,
+  //     "extendBodyBehindAppBar": widget.extendBodyBehindAppBar,
+  //     "backgroundColor": widget.backgroundColor == null
+  //         ? null
+  //         : HexColor.toHex(widget.backgroundColor!),
+  //     "drawerScrimColor": widget.backgroundColor == null
+  //         ? null
+  //         : HexColor.toHex(widget.drawerScrimColor!),
+  //     "primary": widget.primary,
+  //     "body": XSdui.toJson(widget.body),
+  //     "bottomNavigationBar": XSdui.toJson(widget.bottomNavigationBar),
+  //     "floatingActionButton": XSdui.toJson(widget.floatingActionButton),
+  //     "floatingActionButtonLocation":
+  //         widget.floatingActionButtonLocation.toString() == "null"
+  //             ? null
+  //             : widget.floatingActionButtonLocation
+  //                 .toString()
+  //                 .replaceAll("FloatingActionButtonLocation.", ""),
+  //   };
+  // }
 }
