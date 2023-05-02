@@ -10,8 +10,28 @@ class XSduiTextFormField {
   static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
+    required Map<String, TextEditingController> controllers,
+    required Map<String, String? Function(String?)?> validators,
   }) {
+    TextEditingController handleAction() {
+      if (controllers.containsKey(json['controller'])) {
+        return controllers[json['controller']]!;
+      } else {
+        return TextEditingController();
+      }
+    }
+
+    String? Function(String?)? handleValidator() {
+      if (validators.containsKey(json['validator'])) {
+        return validators[json['validator']]!;
+      } else {
+        return null;
+      }
+    }
+
     return TextFormField(
+      validator: handleValidator(),
+      controller: handleAction(),
       textAlign: XSduiTextAlign.fromString(json["textAlign"]),
       autocorrect: json["autoCorrect"] ?? true,
       autofocus: json["autoFocus"] ?? false,
@@ -58,9 +78,15 @@ class XSduiTextFormField {
         label: json["label"] == null
             ? null
             : XSdui.fromJson(context, json: json["label"]),
+        focusedErrorBorder: json["focusedErrorBorder"] == null
+            ? null
+            : XSduiInputBorder.fromMap(json["focusedErrorBorder"]),
         focusedBorder: json["focusedBorder"] == null
             ? null
             : XSduiInputBorder.fromMap(json["focusedBorder"]),
+        enabledBorder: json["enabledBorder"] == null
+            ? null
+            : XSduiInputBorder.fromMap(json["enabledBorder"]),
         border: json["border"] == null
             ? null
             : XSduiInputBorder.fromMap(json["border"]),
