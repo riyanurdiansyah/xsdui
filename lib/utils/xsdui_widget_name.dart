@@ -48,4 +48,8 @@ abstract class XSduiWidgetName {
   static const stack = "stack";
 
   static const verticalDivider = "verticaldivider";
+
+  static const sizedBox = "sizedbox";
+
+  static const form = "form";
 }
