@@ -16,15 +16,32 @@ import 'package:xsdui/parser/xsdui_spacer/xsdui_spacer.dart';
 import 'package:xsdui/parser/xsdui_text_form_field/xsdui_text_form_field.dart';
 import 'package:xsdui/utils/xsdui_widget_name.dart';
 import 'package:xsdui/xsdui.dart';
+import 'package:xsdui/xsdui/xsdui_asset.dart';
 
 class XSdui {
+  static Widget fromAsset(BuildContext context, {required String path}) {
+    return FutureBuilder<Map<String, dynamic>>(
+      future: XSduiAsset.load(path: path),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return XSdui.fromJson(context, json: snapshot.data!);
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text(snapshot.error.toString()),
+          );
+        }
+        return const CircularProgressIndicator();
+      },
+    );
+  }
+
   static Widget fromNetwork(
     BuildContext context, {
     required String url,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? queryParameters,
   }) {
-    return FutureBuilder<Map<String, dynamic>?>(
+    return FutureBuilder<Map<String, dynamic>>(
       future: XSduiNetwork.getRequest(url: url),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
@@ -36,8 +53,8 @@ class XSdui {
             if (snapshot.hasData) {
               return XSdui.fromJson(json: snapshot.data ?? {}, context);
             } else if (snapshot.hasError) {
-              return const Center(
-                child: CircularProgressIndicator(),
+              return Center(
+                child: Text(snapshot.error.toString()),
               );
             } else {
               return const SizedBox();
