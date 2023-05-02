@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:xsdui/parser/xsdui_column/xsdui_column_extension.dart';
 import 'package:xsdui/parser/xsdui_text/xsdui_text_extension.dart';
 import 'package:xsdui/utils/xsdui_extension.dart';
+import 'package:xsdui/xsdui.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,27 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                final data = WidgetToJson.encode(
-                  ListView.builder(
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return Text("data $index");
-                    },
-                  ),
-                  context: context,
-                );
-
-                debugPrint("CEK : $data");
-              },
-              child: const Text("data"),
-            ),
-          ],
-        ),
+      home: XSdui.fromNetwork(
+        context,
+        url:
+            "https://arkademi-flutter-v201.asia-southeast1.firebasedatabase.app/sdui.json",
       ),
     );
   }

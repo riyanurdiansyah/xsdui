@@ -18,6 +18,37 @@ import 'package:xsdui/utils/xsdui_widget_name.dart';
 import 'package:xsdui/xsdui.dart';
 
 class XSdui {
+  static Widget fromNetwork(
+    BuildContext context, {
+    required String url,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? queryParameters,
+  }) {
+    return FutureBuilder<Map<String, dynamic>?>(
+      future: XSduiNetwork.getRequest(url: url),
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.waiting:
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          case ConnectionState.done:
+            if (snapshot.hasData) {
+              return XSdui.fromJson(json: snapshot.data ?? {}, context);
+            } else if (snapshot.hasError) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return const SizedBox();
+            }
+          default:
+            return const SizedBox();
+        }
+      },
+    );
+  }
+
   static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
