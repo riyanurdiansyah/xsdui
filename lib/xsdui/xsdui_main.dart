@@ -19,6 +19,12 @@ import 'package:xsdui/xsdui.dart';
 import 'package:xsdui/xsdui/xsdui_asset.dart';
 
 class XSdui {
+  static Map<String, Function>? _functionMap;
+
+  static void setFunctionMap(Map<String, Function> functionMap) {
+    _functionMap = functionMap;
+  }
+
   static Widget fromAsset(BuildContext context, {required String path}) {
     return FutureBuilder<Map<String, dynamic>>(
       future: XSduiAsset.load(path: path),
@@ -86,7 +92,8 @@ class XSdui {
         return XSduiContainer.fromJson(context, json: json);
 
       case XSduiWidgetName.elevatedButton:
-        return XSduiElevatedButton.fromJson(context, json: json);
+        return XSduiElevatedButton.fromJson(context,
+            json: json, functionMap: _functionMap ?? {'dummy': () {}});
 
       case XSduiWidgetName.gestureDetector:
         return XSduiGestureDetector.fromJson(context, json: json);

@@ -7,13 +7,35 @@ class XSduiElevatedButton {
   static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,
+    required Map<String, Function> functionMap,
   }) {
-    return ElevatedButton(
-      onPressed: () {
-        if (json["onPressed"]["type"] == "http") {
+    void handleAction() {
+      switch (json['onPressed']['type']) {
+        case 'http':
           XSduiNetwork.getRequest(url: json["onPressed"]["url"]);
-        }
-      },
+          break;
+        case 'showSnackBar':
+          if (json['onPressed']['message'] != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(json['onPressed']['message'])),
+            );
+          }
+          break;
+        case 'customFunction':
+          String functionName = json['onPressed']['functionName'];
+          if (functionMap.containsKey(functionName)) {
+            functionMap[functionName]?.call();
+          } else {
+            print('Unknown function name: $functionName');
+          }
+          break;
+        default:
+          print('Unknown action type: ${json['onPressed']['type']}');
+      }
+    }
+
+    return ElevatedButton(
+      onPressed: handleAction,
       style: ButtonStyle(
         backgroundColor: json["backgroundColor"] == null
             ? null
