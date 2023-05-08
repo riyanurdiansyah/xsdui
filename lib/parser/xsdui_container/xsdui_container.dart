@@ -18,6 +18,31 @@ class XSduiContainer {
         borderRadius: json["borderRadius"] == null
             ? null
             : XSduiBorderRadius.fromMap(json["borderRadius"]),
+        border: json["border"] == null
+            ? null
+            : Border.all(
+                color: HexColor.fromHex(json["border"]["color"]),
+                width: json["border"],
+              ),
+        gradient: json["gradient"] == null
+            ? null
+            : LinearGradient(
+                tileMode:
+                    XSduiTileMode.fromString(json["gradient"]["tileMode"]),
+                stops: json["gradient"]["stops"],
+                begin: json["gradient"]["begin"] == null
+                    ? Alignment.centerLeft
+                    : XSduiAlignment.fromString(json["gradient"]["begin"]),
+                end: json["gradient"]["end"] == null
+                    ? Alignment.centerRight
+                    : XSduiAlignment.fromString(json["gradient"]["end"]),
+                colors: List.generate(
+                  json["gradient"]["colors"]?.length ?? 0,
+                  (i) => HexColor.fromHex(
+                    json["gradient"]["colors"][i],
+                  ),
+                ),
+              ),
       ),
       alignment: json["alignment"] == null
           ? null

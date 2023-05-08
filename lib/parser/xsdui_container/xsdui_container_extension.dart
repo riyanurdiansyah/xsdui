@@ -85,3 +85,23 @@ extension XSduiBorderRadius on BorderRadius {
     }
   }
 }
+
+extension XSduiTileMode on TileMode {
+  static TileMode fromString(String? tile) {
+    switch (tile) {
+      case null:
+        return TileMode.clamp;
+      case "clamp":
+        return TileMode.clamp;
+      case "decal":
+        return TileMode.decal;
+      case "mirror":
+        return TileMode.mirror;
+      case "repeated":
+        return TileMode.repeated;
+
+      default:
+        return TileMode.clamp;
+    }
+  }
+}
