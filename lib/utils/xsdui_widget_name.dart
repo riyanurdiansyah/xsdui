@@ -51,5 +51,13 @@ abstract class XSduiWidgetName {
 
   static const sizedBox = "sizedbox";
 
+  static const card = "card";
+
+  static const positioned = "positioned";
+
+  static const fittedbox = "fittedbox";
+
+  static const expandable = "expandable";
+
   static const form = "form";
 }

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:xsdui/parser/expandable/xsdui_expandable.dart';
 import 'package:xsdui/parser/xsdui_alert_dialog/xsdui_alert_dialog.dart';
 import 'package:xsdui/parser/xsdui_appbar/xsdui_appbar.dart';
+import 'package:xsdui/parser/xsdui_card/xsdui_card.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider_vertical.dart';
 import 'package:xsdui/parser/xsdui_elevated_button/xsdui_elevated_button.dart';
+import 'package:xsdui/parser/xsdui_fitted_box/xsdui_fitted_box.dart';
 import 'package:xsdui/parser/xsdui_form/xsdui_form.dart';
 import 'package:xsdui/parser/xsdui_gesture_detector/xsdui_gesture_detector.dart';
 import 'package:xsdui/parser/xsdui_image/xsdui_image.dart';
@@ -12,6 +15,7 @@ import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_builder.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_separated.dart';
 import 'package:xsdui/parser/xsdui_padding/xsdui_padding.dart';
+import 'package:xsdui/parser/xsdui_positioned/xsdui_positioned.dart';
 import 'package:xsdui/parser/xsdui_single_child_scroll_view/xsdui_single_child_scroll_view.dart';
 import 'package:xsdui/parser/xsdui_spacer/xsdui_spacer.dart';
 import 'package:xsdui/parser/xsdui_text_form_field/xsdui_text_form_field.dart';
@@ -102,6 +106,18 @@ class XSdui {
       case "":
         return const SizedBox();
 
+      case XSduiWidgetName.expandable:
+        return XSduiExpandable.fromJson(context, json: json);
+
+      case XSduiWidgetName.fittedbox:
+        return XSduiFittedBox.fromJson(context, json: json);
+
+      case XSduiWidgetName.card:
+        return XSduiCard.fromJson(context, json: json);
+
+      case XSduiWidgetName.positioned:
+        return XSduiPositioned.fromJson(context, json: json);
+
       case XSduiWidgetName.sizedBox:
         return XSduiSizedBox.fromJson(context, json: json);
 
@@ -165,10 +181,12 @@ class XSdui {
         return XSduiAlertDialog.fromJson(context, json: json);
 
       case XSduiWidgetName.textFormField:
-        return XSduiTextFormField.fromJson(context,
-            json: json,
-            controllers: _textControllerMaps!,
-            validators: _validators!);
+        return XSduiTextFormField.fromJson(
+          context,
+          json: json,
+          controllers: _textControllerMaps!,
+          validators: _validators!,
+        );
 
       case XSduiWidgetName.form:
         return XsduiForm.fromJson(context, json: json, keyMaps: _keyMaps!);
