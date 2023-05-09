@@ -9,6 +9,7 @@ class XSduiAppbar {
   }) {
     return AppBar(
       centerTitle: json["centerTitle"],
+      flexibleSpace: XSdui.fromJson(context, json: json),
       automaticallyImplyLeading: json["automaticallyImplyLeading"] ?? true,
       title: XSdui.fromJson(context, json: json["title"]),
       backgroundColor: json["backgroundColor"] == null
