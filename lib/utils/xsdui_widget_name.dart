@@ -60,4 +60,6 @@ abstract class XSduiWidgetName {
   static const expandable = "expandable";
 
   static const form = "form";
+
+  static const expanded = "expanded";
 }

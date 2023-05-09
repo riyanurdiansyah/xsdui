@@ -23,6 +23,8 @@ import 'package:xsdui/utils/xsdui_widget_name.dart';
 import 'package:xsdui/xsdui.dart';
 import 'package:xsdui/xsdui/xsdui_asset.dart';
 
+import '../parser/xsdui_expanded/xsdui_expanded.dart';
+
 class XSdui {
   static Map<String, Function>? _functionMaps;
 
@@ -179,6 +181,9 @@ class XSdui {
 
       case XSduiWidgetName.alertDialog:
         return XSduiAlertDialog.fromJson(context, json: json);
+
+      case XSduiWidgetName.expanded:
+        return XSduiExpanded.fromJson(context, json: json);
 
       case XSduiWidgetName.textFormField:
         return XSduiTextFormField.fromJson(
