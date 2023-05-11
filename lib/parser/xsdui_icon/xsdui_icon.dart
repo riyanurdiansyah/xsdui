@@ -3,7 +3,7 @@ import 'package:xsdui/parser/xsdui_column/xsdui_column_extension.dart';
 import 'package:xsdui/parser/xsdui_icon/xsdui_icon_extension.dart';
 import 'package:xsdui/utils/xsdui_extension.dart';
 
-class XSduiText {
+class XSduiIcon {
   static Widget fromJson(
     BuildContext context, {
     required Map<String, dynamic> json,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xsdui/parser/expandable/xsdui_expandable.dart';
+import 'package:xsdui/parser/xsdui_expandable/xsdui_expandable.dart';
 import 'package:xsdui/parser/xsdui_alert_dialog/xsdui_alert_dialog.dart';
 import 'package:xsdui/parser/xsdui_appbar/xsdui_appbar.dart';
 import 'package:xsdui/parser/xsdui_card/xsdui_card.dart';
@@ -25,6 +25,8 @@ import 'package:xsdui/parser/xsdui_text_form_field/xsdui_text_form_field.dart';
 import 'package:xsdui/utils/xsdui_widget_name.dart';
 import 'package:xsdui/xsdui.dart';
 import 'package:xsdui/xsdui/xsdui_asset.dart';
+
+import '../parser/xsdui_icon/xsdui_icon.dart';
 
 class XSdui {
   static Map<String, Function>? _functionMaps;
@@ -119,6 +121,9 @@ class XSdui {
 
       case XSduiWidgetName.expandable:
         return XSduiExpandable.fromJson(context, json: json);
+
+      case XSduiWidgetName.icon:
+        return XSduiIcon.fromJson(context, json: json);
 
       case XSduiWidgetName.expanded:
         return XSduiExpanded.fromJson(context, json: json);
