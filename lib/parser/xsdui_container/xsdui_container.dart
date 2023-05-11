@@ -11,9 +11,18 @@ class XSduiContainer {
     required Map<String, dynamic> json,
   }) {
     return Container(
-      width: json["width"] ?? double.infinity,
+      width: json["width"],
       height: json["height"],
       decoration: BoxDecoration(
+        shape: XSduiShape.fromString(json['shape']),
+        boxShadow: json["boxShadow"] == true
+            ? <BoxShadow>[
+                const BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 15.0,
+                    offset: Offset(0.0, 0.75))
+              ]
+            : null,
         color: json["color"] == null ? null : HexColor.fromHex(json["color"]),
         borderRadius: json["borderRadius"] == null
             ? null

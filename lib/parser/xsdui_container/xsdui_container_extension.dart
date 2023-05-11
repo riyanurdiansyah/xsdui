@@ -31,6 +31,19 @@ extension XSduiEdgeInsetMargin on EdgeInsets {
   }
 }
 
+extension XSduiShape on BoxShape {
+  static BoxShape fromString(String? quality) {
+    switch (quality) {
+      case null:
+        return BoxShape.rectangle;
+      case "circle":
+        return BoxShape.circle;
+      default:
+        return BoxShape.rectangle;
+    }
+  }
+}
+
 extension XSduiEdgeInsetPadding on EdgeInsets {
   static EdgeInsets fromMap(Map<String, dynamic> map) {
     switch (map["paddingType"]) {
