@@ -13,11 +13,13 @@ import 'package:xsdui/parser/xsdui_image/xsdui_image.dart';
 import 'package:xsdui/parser/xsdui_inkwell/xsdui_inkwell.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_builder.dart';
+import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_builder_custom.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_separated.dart';
 import 'package:xsdui/parser/xsdui_padding/xsdui_padding.dart';
 import 'package:xsdui/parser/xsdui_positioned/xsdui_positioned.dart';
 import 'package:xsdui/parser/xsdui_single_child_scroll_view/xsdui_single_child_scroll_view.dart';
 import 'package:xsdui/parser/xsdui_spacer/xsdui_spacer.dart';
+import 'package:xsdui/parser/xsdui_stack/xsdui_stack.dart';
 import 'package:xsdui/parser/xsdui_text_form_field/xsdui_text_form_field.dart';
 import 'package:xsdui/utils/xsdui_widget_name.dart';
 import 'package:xsdui/xsdui.dart';
@@ -31,6 +33,14 @@ class XSdui {
   static Map<String, GlobalKey<FormState>>? _keyMaps;
 
   static Map<String, String? Function(String?)?>? _validators;
+
+  static Map<String, Map<List, Widget? Function(BuildContext, int)>>?
+      _listAndBuilder;
+
+  static void setListAndBuilder(
+      Map<String, Map<List, Widget? Function(BuildContext, int)>> lists) {
+    _listAndBuilder = lists;
+  }
 
   static void setTextControllerMap(
       Map<String, TextEditingController> controllers) {
@@ -150,6 +160,10 @@ class XSdui {
       case XSduiWidgetName.listViewBuilder:
         return XSduiListViewBuilder.fromJson(context, json: json);
 
+      case XSduiWidgetName.listViewBuilderCustom:
+        return XSduiListViewBuilderCustom.fromJson(context,
+            json: json, listMap: _listAndBuilder ?? {});
+
       case XSduiWidgetName.listViewSeparated:
         return XSduiListViewSeparated.fromJson(context, json: json);
 
@@ -190,6 +204,9 @@ class XSdui {
 
       case XSduiWidgetName.form:
         return XsduiForm.fromJson(context, json: json, keyMaps: _keyMaps!);
+
+      case XSduiWidgetName.stack:
+        return XSduiStack.fromJson(context, json: json);
 
       default:
         return const SizedBox();
