@@ -7,7 +7,7 @@ class XSduiExpanded {
     required Map<String, dynamic> json,
   }) {
     return Expanded(
-      flex: json["flex"],
+      flex: json["flex"] ?? 1,
       child: XSdui.fromJson(
         context,
         json: json["child"],
