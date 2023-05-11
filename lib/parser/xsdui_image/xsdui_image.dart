@@ -51,6 +51,8 @@ class XSduiImage {
 
     return Image.asset(
       json["link"],
+      width: json["width"],
+      height: json["height"],
       filterQuality: XSduiFilterQuality.fromString(json["filterQuality"]),
       fit: json["fit"] == null ? null : XSduiImageFit.fromString(json["fit"]),
       errorBuilder: (_, __, ___) {
