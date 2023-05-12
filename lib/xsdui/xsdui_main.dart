@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:xsdui/parser/xsdui_expandable/xsdui_expandable.dart';
 import 'package:xsdui/parser/xsdui_alert_dialog/xsdui_alert_dialog.dart';
 import 'package:xsdui/parser/xsdui_appbar/xsdui_appbar.dart';
 import 'package:xsdui/parser/xsdui_card/xsdui_card.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider.dart';
 import 'package:xsdui/parser/xsdui_divider/xsdui_divider_vertical.dart';
 import 'package:xsdui/parser/xsdui_elevated_button/xsdui_elevated_button.dart';
-import 'package:xsdui/parser/xsdui_expanded/xsdui_expanded.dart';
+import 'package:xsdui/parser/xsdui_expandable/xsdui_expandable.dart';
 import 'package:xsdui/parser/xsdui_fitted_box/xsdui_fitted_box.dart';
 import 'package:xsdui/parser/xsdui_form/xsdui_form.dart';
 import 'package:xsdui/parser/xsdui_gesture_detector/xsdui_gesture_detector.dart';
@@ -14,19 +13,18 @@ import 'package:xsdui/parser/xsdui_image/xsdui_image.dart';
 import 'package:xsdui/parser/xsdui_inkwell/xsdui_inkwell.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_builder.dart';
-import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_builder_custom.dart';
 import 'package:xsdui/parser/xsdui_list_view/xsdui_list_view_separated.dart';
 import 'package:xsdui/parser/xsdui_padding/xsdui_padding.dart';
 import 'package:xsdui/parser/xsdui_positioned/xsdui_positioned.dart';
 import 'package:xsdui/parser/xsdui_single_child_scroll_view/xsdui_single_child_scroll_view.dart';
 import 'package:xsdui/parser/xsdui_spacer/xsdui_spacer.dart';
-import 'package:xsdui/parser/xsdui_stack/xsdui_stack.dart';
 import 'package:xsdui/parser/xsdui_text_form_field/xsdui_text_form_field.dart';
+import 'package:xsdui/parser/xsdui_wrap/xsdui_wrap.dart';
 import 'package:xsdui/utils/xsdui_widget_name.dart';
 import 'package:xsdui/xsdui.dart';
 import 'package:xsdui/xsdui/xsdui_asset.dart';
 
-import '../parser/xsdui_icon/xsdui_icon.dart';
+import '../parser/xsdui_expanded/xsdui_expanded.dart';
 
 class XSdui {
   static Map<String, Function>? _functionMaps;
@@ -36,14 +34,6 @@ class XSdui {
   static Map<String, GlobalKey<FormState>>? _keyMaps;
 
   static Map<String, String? Function(String?)?>? _validators;
-
-  static Map<String, Map<List, Widget? Function(BuildContext, int)>>?
-      _listAndBuilder;
-
-  static void setListAndBuilder(
-      Map<String, Map<List, Widget? Function(BuildContext, int)>> lists) {
-    _listAndBuilder = lists;
-  }
 
   static void setTextControllerMap(
       Map<String, TextEditingController> controllers) {
@@ -119,14 +109,11 @@ class XSdui {
       case "":
         return const SizedBox();
 
-      case XSduiWidgetName.expandable:
-        return XSduiExpandable.fromJson(context, json: json);
-
-      case XSduiWidgetName.icon:
-        return XSduiIcon.fromJson(context, json: json);
-
       case XSduiWidgetName.expanded:
         return XSduiExpanded.fromJson(context, json: json);
+
+      case XSduiWidgetName.expandable:
+        return XSduiExpandable.fromJson(context, json: json);
 
       case XSduiWidgetName.fittedbox:
         return XSduiFittedBox.fromJson(context, json: json);
@@ -169,10 +156,6 @@ class XSdui {
       case XSduiWidgetName.listViewBuilder:
         return XSduiListViewBuilder.fromJson(context, json: json);
 
-      case XSduiWidgetName.listViewBuilderCustom:
-        return XSduiListViewBuilderCustom.fromJson(context,
-            json: json, listMap: _listAndBuilder ?? {});
-
       case XSduiWidgetName.listViewSeparated:
         return XSduiListViewSeparated.fromJson(context, json: json);
 
@@ -214,8 +197,8 @@ class XSdui {
       case XSduiWidgetName.form:
         return XsduiForm.fromJson(context, json: json, keyMaps: _keyMaps!);
 
-      case XSduiWidgetName.stack:
-        return XSduiStack.fromJson(context, json: json);
+      case XSduiWidgetName.wrap:
+        return XSduiWrap.fromJson(context, json: json);
 
       default:
         return const SizedBox();

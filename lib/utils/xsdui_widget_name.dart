@@ -33,8 +33,6 @@ abstract class XSduiWidgetName {
 
   static const listViewBuilder = "listviewbuilder";
 
-  static const listViewBuilderCustom = 'listviewbuildercustom';
-
   static const listViewSeparated = "listviewseparated";
 
   static const padding = "padding";
@@ -65,5 +63,5 @@ abstract class XSduiWidgetName {
 
   static const expanded = "expanded";
 
-  static const icon = "icon";
+  static const wrap = 'wrap';
 }
