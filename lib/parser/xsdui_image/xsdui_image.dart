@@ -10,6 +10,8 @@ class XSduiImage {
     if (json["imageType"] == "network") {
       return Image.network(
         json["link"],
+        height: json['height'],
+        width: json['width'],
         filterQuality: XSduiFilterQuality.fromString(json["filterQuality"]),
         fit: json["fit"] == null ? null : XSduiImageFit.fromString(json["fit"]),
         errorBuilder: (_, __, ___) {
@@ -24,6 +26,8 @@ class XSduiImage {
     if (json["imageType"] == "file") {
       return Image.file(
         json["link"],
+        height: json['height'],
+        width: json['width'],
         filterQuality: XSduiFilterQuality.fromString(json["filterQuality"]),
         fit: json["fit"] == null ? null : XSduiImageFit.fromString(json["fit"]),
         errorBuilder: (_, __, ___) {
@@ -38,6 +42,8 @@ class XSduiImage {
     if (json["imageType"] == "memory") {
       return Image.memory(
         json["link"],
+        height: json['height'],
+        width: json['width'],
         filterQuality: XSduiFilterQuality.fromString(json["filterQuality"]),
         fit: json["fit"] == null ? null : XSduiImageFit.fromString(json["fit"]),
         errorBuilder: (_, __, ___) {
@@ -51,8 +57,8 @@ class XSduiImage {
 
     return Image.asset(
       json["link"],
-      width: json["width"],
-      height: json["height"],
+      height: json['height'],
+      width: json['width'],
       filterQuality: XSduiFilterQuality.fromString(json["filterQuality"]),
       fit: json["fit"] == null ? null : XSduiImageFit.fromString(json["fit"]),
       errorBuilder: (_, __, ___) {
