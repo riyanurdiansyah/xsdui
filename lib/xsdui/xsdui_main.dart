@@ -7,6 +7,7 @@ import 'package:xsdui/parser/xsdui_divider/xsdui_divider_vertical.dart';
 import 'package:xsdui/parser/xsdui_elevated_button/xsdui_elevated_button.dart';
 import 'package:xsdui/parser/xsdui_expandable/xsdui_expandable.dart';
 import 'package:xsdui/parser/xsdui_fitted_box/xsdui_fitted_box.dart';
+import 'package:xsdui/parser/xsdui_flexible/xsdui_flexible.dart';
 import 'package:xsdui/parser/xsdui_form/xsdui_form.dart';
 import 'package:xsdui/parser/xsdui_gesture_detector/xsdui_gesture_detector.dart';
 import 'package:xsdui/parser/xsdui_image/xsdui_image.dart';
@@ -108,6 +109,9 @@ class XSdui {
     switch (type) {
       case "":
         return const SizedBox();
+
+      case XSduiWidgetName.flexible:
+        return XSduiFlexible.fromJson(context, json: json);
 
       case XSduiWidgetName.expanded:
         return XSduiExpanded.fromJson(context, json: json);

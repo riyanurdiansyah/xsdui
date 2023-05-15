@@ -64,4 +64,6 @@ abstract class XSduiWidgetName {
   static const expanded = "expanded";
 
   static const wrap = 'wrap';
+
+  static const flexible = 'flexible';
 }
