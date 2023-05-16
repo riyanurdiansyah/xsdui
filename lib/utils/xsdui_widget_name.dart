@@ -66,4 +66,8 @@ abstract class XSduiWidgetName {
   static const wrap = 'wrap';
 
   static const flexible = 'flexible';
+
+  static const listViewBuilderCustom = 'listViewBuilderCustom';
+
+  static const icon = 'icon';
 }
