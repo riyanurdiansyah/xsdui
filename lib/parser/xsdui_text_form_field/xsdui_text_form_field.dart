@@ -30,8 +30,8 @@ class XSduiTextFormField {
     }
 
     return TextFormField(
-      validator: handleValidator(),
-      controller: handleAction(),
+      validator: json['validator'] == null ? null : handleValidator(),
+      controller: json['controller'] == null ? null : handleAction(),
       textAlign: XSduiTextAlign.fromString(json["textAlign"]),
       autocorrect: json["autoCorrect"] ?? true,
       autofocus: json["autoFocus"] ?? false,
