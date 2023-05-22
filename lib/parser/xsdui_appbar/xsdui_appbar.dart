@@ -26,6 +26,13 @@ class XSduiAppbar {
       leading: json["leading"] == null
           ? null
           : XSdui.fromJson(context, json: json["leading"]),
+      bottom: json['bottom'] == null
+          ? null
+          : PreferredSize(
+              preferredSize: Size(
+                  json['bottomWidth'] ?? 110.0, json['bottomHeight'] ?? 110.0),
+              child: XSdui.fromJson(context, json: json["bottom"]),
+            ),
     );
   }
 
