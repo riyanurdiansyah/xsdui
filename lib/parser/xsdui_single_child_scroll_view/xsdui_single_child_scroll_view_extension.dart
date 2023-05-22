@@ -66,6 +66,8 @@ extension XSduiScrollPhysics on ScrollPhysics {
 extension XSduiDragStartBehavior on DragStartBehavior {
   static DragStartBehavior fromString(String? drag) {
     switch (drag) {
+      case null:
+        return DragStartBehavior.start;
       case "down":
         return DragStartBehavior.down;
       case "start":
