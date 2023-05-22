@@ -110,7 +110,7 @@ extension XSduiClipBehavior on Clip {
   static Clip fromString(String? clip) {
     switch (clip) {
       case null:
-        return Clip.none;
+        return Clip.hardEdge;
       case "antiAlias":
         return Clip.antiAlias;
       case "antiAliasWithSaveLayer":
