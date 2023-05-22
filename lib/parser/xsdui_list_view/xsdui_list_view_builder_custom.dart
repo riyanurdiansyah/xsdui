@@ -45,34 +45,34 @@ class XSduiListViewBuilderCustom {
 
     print('called listview custom');
     return ListView.builder(
-        addAutomaticKeepAlives: json["addAutomaticKeepAlives"] ?? true,
-        addRepaintBoundaries: json["addRepaintBoundaries"] ?? true,
-        addSemanticIndexes: json["addSemanticIndexes"] ?? true,
-        cacheExtent: json["cacheExtent"],
-        clipBehavior: XSduiClipBehavior.fromString(json["clipBehavior"]),
-        dragStartBehavior:
-            XSduiDragStartBehavior.fromString(json["dragStartBehavior"]),
-        itemExtent: json["itemExtent"],
-        keyboardDismissBehavior:
-            XSduiListViewKeyboardDissmissBehavior.fromString(
-                json["keyboardDismissBehavior"]),
-        padding: json["padding"] == null
-            ? null
-            : XSduiEdgeInsetPadding.fromMap(json["padding"]),
-        primary: json["primary"],
-        prototypeItem: json["prototypeItem"] == null
-            ? null
-            : XSdui.fromJson(context, json: json["prototypeItem"]),
-        restorationId: json["restorationId"],
-        reverse: json["reverse"] ?? false,
-        semanticChildCount: json["semanticChildCount"],
-        shrinkWrap: json["shrinkWrap"] ?? false,
-        scrollDirection: XSduiAxis.fromString(json["scrollDirection"]),
-        physics: json["physics"] == null
-            ? null
-            : XSduiScrollPhysics.fromString(json["physics"]),
-        itemCount: getListLength(),
-        itemBuilder: getBuilderFunction());
+      addAutomaticKeepAlives: json["addAutomaticKeepAlives"] ?? true,
+      addRepaintBoundaries: json["addRepaintBoundaries"] ?? true,
+      addSemanticIndexes: json["addSemanticIndexes"] ?? true,
+      cacheExtent: json["cacheExtent"],
+      clipBehavior: XSduiClipBehavior.fromString(json["clipBehavior"]),
+      dragStartBehavior:
+          XSduiDragStartBehavior.fromString(json["dragStartBehavior"]),
+      itemExtent: json["itemExtent"],
+      keyboardDismissBehavior: XSduiListViewKeyboardDissmissBehavior.fromString(
+          json["keyboardDismissBehavior"]),
+      padding: json["padding"] == null
+          ? null
+          : XSduiEdgeInsetPadding.fromMap(json["padding"]),
+      primary: json["primary"],
+      prototypeItem: json["prototypeItem"] == null
+          ? null
+          : XSdui.fromJson(context, json: json["prototypeItem"]),
+      restorationId: json["restorationId"],
+      reverse: json["reverse"] ?? false,
+      semanticChildCount: json["semanticChildCount"],
+      shrinkWrap: json["shrinkWrap"] ?? false,
+      scrollDirection: XSduiAxis.fromString(json["scrollDirection"]),
+      physics: json["physics"] == null
+          ? null
+          : XSduiScrollPhysics.fromString(json["physics"]),
+      itemCount: getListLength(),
+      itemBuilder: getBuilderFunction(),
+    );
   }
 
   static Map<String, dynamic> toJson(ListView widget) {

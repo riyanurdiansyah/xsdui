@@ -6,6 +6,7 @@ class XSduiGestureDetector {
     BuildContext context, {
     required Map<String, dynamic> json,
     required Map<String, Function> functionMap,
+    Map<String, Function(dynamic)>? functionMapWithParameters,
   }) {
     void handleAction() {
       switch (json['onPressed']['type']) {
@@ -25,6 +26,17 @@ class XSduiGestureDetector {
             functionMap[functionName]?.call();
           } else {
             print('Unknown function name: $functionName');
+          }
+          break;
+        case 'customFunctionWithParameters':
+          String functionName = json['onPressed']['functionName'];
+          if (functionMapWithParameters != null) {
+            if (functionMapWithParameters.containsKey(functionName)) {
+              functionMapWithParameters[functionName]
+                  ?.call(json['onPressed']['parameter']);
+            } else {
+              print('Unknown function name param: $functionName');
+            }
           }
           break;
         default:

@@ -31,7 +31,7 @@ class XSduiContainer {
             ? null
             : Border.all(
                 color: HexColor.fromHex(json["border"]["color"]),
-                width: json["border"],
+                width: json["border"]["width"] ?? 1.0,
               ),
         gradient: json["gradient"] == null
             ? null

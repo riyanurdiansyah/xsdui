@@ -42,6 +42,13 @@ class XSdui {
   static Map<String, Map<List, Widget? Function(BuildContext, int)>>?
       _listAndBuilder;
 
+  static Map<String, Function(dynamic)>? _functionMapWithParameters;
+
+  static void setFunctionMapWithParameter(
+      Map<String, Function(dynamic)> functionMapWithParameter) {
+    _functionMapWithParameters = functionMapWithParameter;
+  }
+
   static void setListAndBuilder(
       Map<String, Map<List, Widget? Function(BuildContext, int)>> lists) {
     _listAndBuilder = lists;
@@ -83,6 +90,7 @@ class XSdui {
   static Widget fromNetwork(
     BuildContext context, {
     required String url,
+    required Function(Map<String, dynamic>) onDataReceived,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? queryParameters,
   }) {
@@ -90,12 +98,9 @@ class XSdui {
       future: XSduiNetwork.getRequest(url: url),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
-          case ConnectionState.waiting:
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
           case ConnectionState.done:
             if (snapshot.hasData) {
+              onDataReceived(snapshot.data!);
               return XSdui.fromJson(json: snapshot.data ?? {}, context);
             } else if (snapshot.hasError) {
               return Center(
@@ -163,8 +168,12 @@ class XSdui {
             json: json, functionMap: _functionMaps ?? {'dummy': () {}});
 
       case XSduiWidgetName.gestureDetector:
-        return XSduiGestureDetector.fromJson(context,
-            json: json, functionMap: _functionMaps ?? {'dummy': () {}});
+        return XSduiGestureDetector.fromJson(
+          context,
+          json: json,
+          functionMap: _functionMaps ?? {'dummy': () {}},
+          functionMapWithParameters: _functionMapWithParameters,
+        );
 
       case XSduiWidgetName.image:
         return XSduiImage.fromJson(context, json: json);

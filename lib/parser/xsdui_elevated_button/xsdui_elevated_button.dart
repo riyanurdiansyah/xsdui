@@ -13,9 +13,16 @@ class XSduiElevatedButton {
     void handleAction() async {
       switch (json['onPressed']['type']) {
         case 'link':
-          final checkUrl = await canLaunchUrl(json["onPressed"]["link"]);
+          final checkUrl =
+              await canLaunchUrl(Uri.parse(json["onPressed"]["link"]));
           if (checkUrl) {
-            launchUrl(json["onPressed"]["link"]);
+            launchUrl(
+              Uri.parse(json["onPressed"]["link"]),
+              mode: LaunchMode.externalApplication,
+              webViewConfiguration: const WebViewConfiguration(
+                enableJavaScript: true,
+              ),
+            );
           }
           break;
         case 'http':

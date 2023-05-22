@@ -9,6 +9,8 @@ class XSduiWrap {
     required Map<String, dynamic> json,
   }) {
     return Wrap(
+      spacing: json["spacing"] ?? 0.0,
+      runSpacing: json["runSpacing"] ?? 0.0,
       alignment: json['alignment'] == null
           ? WrapAlignment.start
           : XSduiWrapAlignmentExtension.fromString(json['alignment']),
