@@ -16,6 +16,9 @@ class XSduiAppbar {
           : HexColor.fromHex(json["backgroundColor"]),
       elevation: json["elevation"],
       titleSpacing: json["titleSpacing"],
+      flexibleSpace: json['flexibleSpace'] == null
+          ? null
+          : XSdui.fromJson(context, json: json),
       actions: List.generate(
         json["actions"]?.length ?? 0,
         (index) => XSdui.fromJson(context, json: json["actions"][index]),
