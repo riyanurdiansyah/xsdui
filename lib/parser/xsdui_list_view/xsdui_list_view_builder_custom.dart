@@ -19,7 +19,7 @@ class XSduiListViewBuilderCustom {
         if (listMap.containsKey(listName)) {
           return listMap[listName]!.keys.first.length;
         } else {
-          print('Unknown list name: $listName');
+          debugPrint('Unknown list name: $listName');
           return 0;
         }
       }
@@ -43,7 +43,7 @@ class XSduiListViewBuilderCustom {
       };
     }
 
-    print('called listview custom');
+    debugPrint('called listview custom');
     return ListView.builder(
       addAutomaticKeepAlives: json["addAutomaticKeepAlives"] ?? true,
       addRepaintBoundaries: json["addRepaintBoundaries"] ?? true,

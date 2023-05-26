@@ -25,7 +25,7 @@ class XSduiGestureDetector {
           if (functionMap.containsKey(functionName)) {
             functionMap[functionName]?.call();
           } else {
-            print('Unknown function name: $functionName');
+            debugPrint('Unknown function name: $functionName');
           }
           break;
         case 'customFunctionWithParameters':
@@ -35,12 +35,12 @@ class XSduiGestureDetector {
               functionMapWithParameters[functionName]
                   ?.call(json['onPressed']['parameter']);
             } else {
-              print('Unknown function name param: $functionName');
+              debugPrint('Unknown function name param: $functionName');
             }
           }
           break;
         default:
-          print('Unknown action type: ${json['onPressed']['type']}');
+          debugPrint('Unknown action type: ${json['onPressed']['type']}');
       }
     }
 

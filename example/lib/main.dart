@@ -13,29 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Map<String, dynamic> jsonWidget =
-      // {
-      //   "type": "padding",
-      //   "padding": {
-      //     "paddingType": "symmetric",
-      //     "horizontal": 16.0,
-      //   },
-      //   "child": {
-      //     "type": "column",
-      //     "crossAxisAlignment": "start",
-      //     "children": [
-      //       {
-      //         "type": "text",
-      //         "title": "Beli di Marketplace Pilihanmu",
-      //         "fontSize": 17.0,
-      //         "fontWeight": "w800",
-      //         "color": "06284F",
-      //       },
-      //       {
-      //         "type": "sizedbox",
-      //         "height": 18.0,
-      //       },
-      {
+  Map<String, dynamic> jsonWidget = {
     "type": "wrap",
     "spacing": 10.0,
     "runSpacing": 10.0,
@@ -105,9 +83,6 @@ class _MyAppState extends State<MyApp> {
         },
       }
     ]
-    //     }
-    //   ],
-    // }
   };
   final List<String> syaratMendaftar = [
     'WNI berusia 18 tahun keatas.',
@@ -149,12 +124,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // addFunction({
-    //   'card': () {
-    //     changeIndex();
-    //   }
-    // });
-
     addFunctionParameter({
       'ontap': (data) {
         final List<Map<String, dynamic>> list = jsonWidget["children"] ?? [];
@@ -171,7 +140,6 @@ class _MyAppState extends State<MyApp> {
     for (int i = 0; i < leng; i++) {
       listIndex.add(i);
     }
-    print("CEL $listIndex");
     super.initState();
   }
 

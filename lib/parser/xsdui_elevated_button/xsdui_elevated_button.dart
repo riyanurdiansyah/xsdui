@@ -40,11 +40,11 @@ class XSduiElevatedButton {
           if (functionMap.containsKey(functionName)) {
             functionMap[functionName]?.call();
           } else {
-            print('Unknown function name: $functionName');
+            debugPrint('Unknown function name: $functionName');
           }
           break;
         default:
-          print('Unknown action type: ${json['onPressed']['type']}');
+          debugPrint('Unknown action type: ${json['onPressed']['type']}');
       }
     }
 
