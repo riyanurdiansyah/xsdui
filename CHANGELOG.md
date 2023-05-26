@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.0.4
+
+- Update Widget From Json
+- Add Feature Widget To Json
+- Add Function Widget From Network
+- Add Function Widget From Assets
+- Fixed double parse
+
 ## 1.0.3
 
 - Fixed for flutter old version
