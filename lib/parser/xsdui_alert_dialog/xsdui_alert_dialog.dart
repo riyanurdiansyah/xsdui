@@ -39,7 +39,9 @@ class XSduiAlertDialog {
       titleTextStyle: json["titleTextStyle"] == null
           ? null
           : TextStyle(
-              fontSize: json["fontSize"],
+              fontSize: json["fontSize"].runtimeType == int
+                  ? double.parse(json["fontSize"].toString())
+                  : json["fontSize"],
               fontFamily: json["fontFamily"],
               fontWeight: json["fontWeight"] == null
                   ? null
@@ -47,11 +49,15 @@ class XSduiAlertDialog {
               fontStyle: json["fontStyle"] == null
                   ? null
                   : XSduiFontStyle.fromString(json["fontStyle"]),
-              wordSpacing: json["wordSpacing"],
+              wordSpacing: json["wordSpacing"].runtimeType == int
+                  ? double.parse(json["wordSpacing"].toString())
+                  : json["wordSpacing"],
               color: json["color"] == null
                   ? null
                   : HexColor.fromHex(json["color"]),
-              height: json["height"],
+              height: json["height"].runtimeType == int
+                  ? double.parse(json["height"].toString())
+                  : json["height"],
             ),
     );
   }

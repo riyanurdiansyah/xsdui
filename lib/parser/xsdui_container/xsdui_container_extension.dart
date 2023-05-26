@@ -4,12 +4,24 @@ extension XSduiEdgeInsetMargin on EdgeInsets {
   static EdgeInsets fromMap(Map<String, dynamic> map) {
     switch (map["marginType"]) {
       case "all":
-        return EdgeInsets.all(map["margin"] ?? 0.0);
+        return EdgeInsets.all(map["margin"] == null
+            ? 0.0
+            : map["margin"].runtimeType == int
+                ? double.parse(map["margin"].toString())
+                : map["margin"]);
 
       case "symmetric":
         return EdgeInsets.symmetric(
-          horizontal: map["horizontal"] ?? 0.0,
-          vertical: map["vertical"] ?? 0.0,
+          horizontal: map["horizontal"] == null
+              ? 0.0
+              : map["horizontal"].runtimeType == int
+                  ? double.parse(map["horizontal"].toString())
+                  : map["horizontal"],
+          vertical: map["vertical"] == null
+              ? 0.0
+              : map["vertical"].runtimeType == int
+                  ? double.parse(map["vertical"].toString())
+                  : map["vertical"],
         );
 
       case "ltrb":
@@ -22,10 +34,26 @@ extension XSduiEdgeInsetMargin on EdgeInsets {
 
       default:
         return EdgeInsets.only(
-          left: map["left"] ?? 0.0,
-          right: map["right"] ?? 0.0,
-          top: map["top"] ?? 0.0,
-          bottom: map["bottom"] ?? 0.0,
+          left: map["left"] == null
+              ? 0.0
+              : map["left"].runtimeType == int
+                  ? double.parse(map["left"].toString())
+                  : map["left"],
+          right: map["right"] == null
+              ? 0.0
+              : map["right"].runtimeType == int
+                  ? double.parse(map["right"].toString())
+                  : map["right"],
+          top: map["top"] == null
+              ? 0.0
+              : map["top"].runtimeType == int
+                  ? double.parse(map["top"].toString())
+                  : map["top"],
+          bottom: map["bottom"] == null
+              ? 0.0
+              : map["bottom"].runtimeType == int
+                  ? double.parse(map["bottom"].toString())
+                  : map["bottom"],
         );
     }
   }
@@ -48,12 +76,24 @@ extension XSduiEdgeInsetPadding on EdgeInsets {
   static EdgeInsets fromMap(Map<String, dynamic> map) {
     switch (map["paddingType"]) {
       case "all":
-        return EdgeInsets.all(map["padding"] ?? 0.0);
+        return EdgeInsets.all(map["padding"] == null
+            ? 0.0
+            : map["padding"].runtimeType == int
+                ? double.parse(map["padding"].toString())
+                : map["padding"]);
 
       case "symmetric":
         return EdgeInsets.symmetric(
-          horizontal: map["horizontal"] ?? 0.0,
-          vertical: map["vertical"] ?? 0.0,
+          horizontal: map["horizontal"] == null
+              ? 0.0
+              : map["horizontal"].runtimeType == int
+                  ? double.parse(map["horizontal"].toString())
+                  : map["horizontal"],
+          vertical: map["vertical"] == null
+              ? 0.0
+              : map["vertical"].runtimeType == int
+                  ? double.parse(map["vertical"].toString())
+                  : map["vertical"],
         );
 
       case "ltrb":
@@ -66,10 +106,26 @@ extension XSduiEdgeInsetPadding on EdgeInsets {
 
       case "only":
         return EdgeInsets.only(
-          left: map["left"] ?? 0.0,
-          right: map["right"] ?? 0.0,
-          top: map["top"] ?? 0.0,
-          bottom: map["bottom"] ?? 0.0,
+          left: map["left"] == null
+              ? 0.0
+              : map["left"].runtimeType == int
+                  ? double.parse(map["left"].toString())
+                  : map["left"],
+          right: map["right"] == null
+              ? 0.0
+              : map["right"].runtimeType == int
+                  ? double.parse(map["right"].toString())
+                  : map["right"],
+          top: map["top"] == null
+              ? 0.0
+              : map["top"].runtimeType == int
+                  ? double.parse(map["top"].toString())
+                  : map["top"],
+          bottom: map["bottom"] == null
+              ? 0.0
+              : map["bottom"].runtimeType == int
+                  ? double.parse(map["bottom"].toString())
+                  : map["bottom"],
         );
 
       default:
@@ -82,18 +138,46 @@ extension XSduiBorderRadius on BorderRadius {
   static BorderRadius fromMap(Map<String, dynamic> map) {
     switch (map["borderRadiusType"]) {
       case "circular":
-        return BorderRadius.circular(map["radius"] ?? 0.0);
+        return BorderRadius.circular(map["radius"] == null
+            ? 0.0
+            : map["radius"].runtimeType == int
+                ? double.parse(map["radius"].toString())
+                : map["radius"]);
       case "vertical":
         return BorderRadius.vertical(
-          bottom: Radius.circular(map["bottom"] ?? 0.0),
-          top: Radius.circular(map["top"] ?? 0.0),
+          bottom: Radius.circular(map["bottom"] == null
+              ? 0.0
+              : map["bottom"].runtimeType == int
+                  ? double.parse(map["bottom"].toString())
+                  : map["bottom"]),
+          top: Radius.circular(map["top"] == null
+              ? 0.0
+              : map["top"].runtimeType == int
+                  ? double.parse(map["top"].toString())
+                  : map["top"]),
         );
       default:
         return BorderRadius.only(
-          bottomLeft: Radius.circular(map["bottomLeft"] ?? 0.0),
-          topLeft: Radius.circular(map["topLeft"] ?? 0.0),
-          bottomRight: Radius.circular(map["bottomRight"] ?? 0.0),
-          topRight: Radius.circular(map["topRight"] ?? 0.0),
+          bottomLeft: Radius.circular(map["bottomLeft"] == null
+              ? 0.0
+              : map["bottomLeft"].runtimeType == int
+                  ? double.parse(map["bottomLeft"].toString())
+                  : map["bottomLeft"]),
+          topLeft: Radius.circular(map["topLeft"] == null
+              ? 0.0
+              : map["topLeft"].runtimeType == int
+                  ? double.parse(map["topLeft"].toString())
+                  : map["topLeft"]),
+          bottomRight: Radius.circular(map["bottomRight"] == null
+              ? 0.0
+              : map["bottomRight"].runtimeType == int
+                  ? double.parse(map["bottomRight"].toString())
+                  : map["bottomRight"]),
+          topRight: Radius.circular(map["topRight"] == null
+              ? 0.0
+              : map["topRight"].runtimeType == int
+                  ? double.parse(map["topRight"].toString())
+                  : map["topRight"]),
         );
     }
   }

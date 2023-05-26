@@ -15,7 +15,9 @@ class XSduiIcon {
       grade: json["grade"],
       opticalSize: json["opticalSize"],
       semanticLabel: json["semanticLabel"],
-      size: json["size"],
+      size: json["size"].runtimeType == int
+          ? double.parse(json["size"].toString())
+          : json["size"],
       textDirection: json["textDirection"] == null
           ? null
           : XSduiTextDirection.fromString(json["textDirection"]),

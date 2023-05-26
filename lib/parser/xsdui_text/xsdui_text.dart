@@ -25,7 +25,9 @@ class XSduiText {
       textScaleFactor: json["textScaleFactor"],
       semanticsLabel: json["semanticsLabel"],
       style: TextStyle(
-        fontSize: json["fontSize"],
+        fontSize: json["fontSize"].runtimeType == int
+            ? double.parse(json["fontSize"].toString())
+            : json["fontSize"],
         fontFamily: json["fontFamily"],
         fontWeight: json["fontWeight"] == null
             ? null
@@ -35,7 +37,9 @@ class XSduiText {
             : XSduiFontStyle.fromString(json["fontStyle"]),
         wordSpacing: json["wordSpacing"],
         color: json["color"] == null ? null : HexColor.fromHex(json["color"]),
-        height: json["height"],
+        height: json["height"].runtimeType == int
+            ? double.parse(json["height"].toString())
+            : json["height"],
       ),
     );
   }

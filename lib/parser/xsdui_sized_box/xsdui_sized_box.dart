@@ -7,8 +7,12 @@ class XSduiSizedBox {
     required Map<String, dynamic> json,
   }) {
     return SizedBox(
-      width: json["width"],
-      height: json["height"],
+      width: json["width"].runtimeType == int
+          ? double.parse(json["width"].toString())
+          : json["width"],
+      height: json["height"].runtimeType == int
+          ? double.parse(json["height"].toString())
+          : json["height"],
       child: json["child"] == null
           ? const SizedBox()
           : XSdui.fromJson(context, json: json["child"]),
