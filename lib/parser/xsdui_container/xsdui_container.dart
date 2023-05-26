@@ -11,8 +11,12 @@ class XSduiContainer {
     required Map<String, dynamic> json,
   }) {
     return Container(
-      width: json["width"],
-      height: json["height"],
+      width: json["width"].runtimeType == int
+          ? double.parse(json["width"].toString())
+          : json["width"],
+      height: json["height"].runtimeType == int
+          ? double.parse(json["height"].toString())
+          : json["height"],
       decoration: BoxDecoration(
         shape: XSduiShape.fromString(json['shape']),
         boxShadow: json["boxShadow"] == true
@@ -31,8 +35,7 @@ class XSduiContainer {
             ? null
             : Border.all(
                 color: HexColor.fromHex(json["border"]["color"]),
-                width: json["border"]["width"] ?? 1.0,
-              ),
+                width: json["border"]["width"] ?? 1.0),
         gradient: json["gradient"] == null
             ? null
             : LinearGradient(
