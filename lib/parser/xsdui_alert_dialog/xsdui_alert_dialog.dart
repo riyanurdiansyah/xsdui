@@ -23,7 +23,7 @@ class XSduiAlertDialog {
           : XSduiAlignment.fromString(json["alignment"]),
       shape: RoundedRectangleBorder(
         borderRadius: json["borderRadius"] == null
-            ? BorderRadius.circular(0)
+            ? BorderRadius.zero
             : XSduiBorderRadius.fromMap(json["borderRadius"]),
       ),
       buttonPadding: json["buttonPadding"] == null
