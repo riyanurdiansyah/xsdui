@@ -13,6 +13,9 @@ class XSduiAlertDialog {
     required Map<String, dynamic> json,
   }) {
     return AlertDialog(
+      titlePadding: json["padding"] == null
+          ? null
+          : XSduiEdgeInsetPadding.fromMap(json["padding"]),
       actions: List.generate(json["action"]?.length ?? 0,
           (index) => XSdui.fromJson(context, json: json["actions"])),
       actionsAlignment: json["actionsAlignment"] == null
@@ -40,7 +43,9 @@ class XSduiAlertDialog {
           : XSdui.fromJson(context, json: json["title"]),
       backgroundColor: json["backgroundColor"] == null
           ? null
-          : HexColor.fromHex(json["backgroundColor"]),
+          : json["backgroundColor"]["isTransparent"]
+              ? Colors.transparent
+              : HexColor.fromHex(json["backgroundColor"]),
       titleTextStyle: json["titleTextStyle"] == null
           ? null
           : TextStyle(
